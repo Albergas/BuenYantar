@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 
 namespace BuenYantar
 {
-    class Inventario
+    public class Inventario
     {
         private Gestor gestor;
         private Collection<Item> inventario;
@@ -16,6 +16,14 @@ namespace BuenYantar
         {
             this.gestor = gestor;
             this.inventario = gestor.items();
+        }
+
+        public Collection<Item> Items
+        {
+            get
+            {
+                return this.inventario;
+            }
         }
 
         public string log()
@@ -49,6 +57,16 @@ namespace BuenYantar
 
             else
                 return false;
+        }
+
+        public void removeItem(string nombre)
+        {
+            gestor.removeItem(nombre);
+        }
+
+        public void modifyItem(Item item)
+        {
+            gestor.modifyItem(item);
         }
     }
 }

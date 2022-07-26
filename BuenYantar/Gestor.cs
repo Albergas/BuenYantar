@@ -8,7 +8,7 @@ using System.IO;
 
 namespace BuenYantar
 {
-    class Gestor
+    public class Gestor
     {
         private string ruta;
 
@@ -23,13 +23,14 @@ namespace BuenYantar
 
             int cantidad = Int32.Parse(datos[1]);
             double precio = double.Parse(datos[2]);
+            int seguridad = Int32.Parse(datos[3]);
 
-            return new Item(datos[0], cantidad, precio);
+            return new Item(datos[0], cantidad, precio, seguridad);
         }
 
         public string ItemToString(Item item)
         {
-            string s = item.Nombre + "|" + item.Cantidad + "|" + item.Precio;
+            string s = item.Nombre + "|" + item.Cantidad + "|" + item.Precio + "|" + item.Seguridad;
             return s;
         }
 
@@ -62,12 +63,38 @@ namespace BuenYantar
 
         public void removeItem(string nombre)
         {
+            string[] lineas = new string[1000];
+            int i = 0;
+            int j = 0;
 
+            foreach (string line in System.IO.File.ReadLines(@"C:\Users\aleja\OneDrive\Escritorio\buenyantarinventario.txt"))
+            {
+                lineas[i] = line;
+                Console.WriteLine(line);
+                i++;
+            }
+
+            StreamWriter sw = new StreamWriter(@"C:\Users\aleja\OneDrive\Escritorio\buenyantarinventario.txt");
+            Item item;
+
+            while (j <= i)
+            {
+                if(lineas[j]!= "" && lineas[j] != null)
+                {
+                    item = StringToItem(lineas[j]);
+                    if (!item.Nombre.Equals(nombre))
+                        sw.WriteLine(lineas[j]);
+                }
+                j++;
+            }
+
+            sw.Close();
         }
 
         public void modifyItem(Item item)
         {
-
+            this.removeItem(item.Nombre);
+            this.addItem(item);
         }
     }
 }

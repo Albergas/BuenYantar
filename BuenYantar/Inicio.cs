@@ -12,9 +12,19 @@ namespace BuenYantar
 {
     public partial class FormInicio : Form
     {
-        public FormInicio()
+
+        private Inventario inventario;
+
+        public FormInicio(Inventario i)
         {
+            this.inventario = i;
             InitializeComponent();
+        }
+
+        private void btInventario_Click(object sender, EventArgs e)
+        {
+            VerInventario verInventario = new VerInventario(inventario);
+            DialogResult d = verInventario.ShowDialog();
         }
     }
 }

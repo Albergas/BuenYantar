@@ -43,6 +43,7 @@ namespace BuenYantar
             this.btInventario.TabIndex = 0;
             this.btInventario.Text = "Ver inventario";
             this.btInventario.UseVisualStyleBackColor = false;
+            this.btInventario.Click += new System.EventHandler(this.btInventario_Click);
             // 
             // btFactura
             // 

@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace BuenYantar
 {
-    class Item
+    public class Item
     {
         private string nombre;
         private int cantidad;
         private double precio;
+        private int seguridad;
 
-        public Item(string nombre, int cantidad, double precio)
+        public Item(string nombre, int cantidad, double precio, int seguridad)
         {
             this.nombre = nombre;
             this.cantidad = cantidad;
             this.precio = precio;
+            this.seguridad = seguridad;
         }
 
         public string Nombre
@@ -24,6 +26,11 @@ namespace BuenYantar
             get
             {
                 return this.nombre;
+            }
+
+            set
+            {
+                this.nombre = value;
             }
         }
 
@@ -33,6 +40,11 @@ namespace BuenYantar
             {
                 return this.cantidad;
             }
+
+            set
+            {
+                this.cantidad = value;
+            }
         }
 
         public double Precio
@@ -41,7 +53,25 @@ namespace BuenYantar
             {
                 return this.precio;
             }
+
+            set
+            {
+                this.precio = value;
+            }
         }
+
+        public int Seguridad
+        {
+            get
+            {
+                return this.seguridad;
+            }
+
+            set
+            {
+                this.seguridad = value;
+            }
+        } 
 
         public void sumar(int n)
         {
@@ -55,7 +85,7 @@ namespace BuenYantar
 
         public string log()
         {
-            string s = this.nombre + ": " + this.cantidad + " uds. (precio "+ this.precio+ "€)";
+            string s = this.nombre + ": " + this.cantidad + " uds. (precio "+ this.precio+ "€). Stock de seguridad " + this.seguridad + "uds.";
             return s;
         }
     }
