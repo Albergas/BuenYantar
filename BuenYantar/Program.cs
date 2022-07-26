@@ -14,10 +14,11 @@ namespace BuenYantar
         [STAThread]
         static void Main()
         {
-            // Application.EnableVisualStyles();
-            // Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Form1());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FormInicio());
 
+            /*
             Gestor g = new Gestor("a");
 
             Inventario i = new Inventario(g);
@@ -31,6 +32,7 @@ namespace BuenYantar
             i.addItem(item2);
 
             Console.WriteLine(i.log());
+            */
         }
     }
 }
