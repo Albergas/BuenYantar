@@ -38,9 +38,8 @@ namespace BuenYantar
             }
             else
             {
-                Inventario i = new Inventario(gestor);
 
-                FormInicio f = new FormInicio(i, user);
+                FormInicio f = new FormInicio(gestor, user);
                 f.ShowDialog();
                 this.Dispose();
             }

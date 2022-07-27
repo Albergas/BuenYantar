@@ -50,6 +50,14 @@ namespace BuenYantar
             }
         }
 
+        public DateTime Date
+        {
+            get
+            {
+                return date;
+            }
+        }
+
         public double precioTotal()
         {
             double precio = 0;
@@ -109,8 +117,6 @@ namespace BuenYantar
             {
                 s += "|" + elemento.Item1.Nombre + "|" + elemento.Item1.Precio + "|" + elemento.Item2;
             }
-
-            s += "\n";
 
             return s;
         }

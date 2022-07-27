@@ -12,15 +12,16 @@ namespace BuenYantar
 {
     public partial class NuevaFactura : Form
     {
-
+        private Gestor gestor;
         private Inventario inventario;
         private Item seleccionado;
         private Factura factura;
         private Usuario user;
 
-        public NuevaFactura(Inventario inventario, Usuario user)
+        public NuevaFactura(Gestor gestor, Inventario inventario, Usuario user)
         {
             InitializeComponent();
+            this.gestor = gestor;
             this.inventario = inventario;
             this.seleccionado = null;
             this.user = user;
@@ -152,6 +153,8 @@ namespace BuenYantar
 
             if(d == DialogResult.OK)
             {
+                gestor.addFactura(factura);
+                gestor.procesarFactura(factura);
                 MessageBox.Show("La factura se guardó correctamente. El stock se ha actualizado");
             }
         }

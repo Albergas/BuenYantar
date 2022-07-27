@@ -24,6 +24,9 @@ namespace BuenYantar
             this.rutaFacturas = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarfacturas.txt";
         }
 
+        // ====================================================================================
+        // GESTION INVENTARIO
+
         public Item StringToItem(string line)
         {
             string[] datos = line.Split('|');
@@ -104,7 +107,7 @@ namespace BuenYantar
             this.addItem(item);
         }
 
-
+        // ====================================================================================
         // GESTION USUARIOS
 
         public Usuario StringToUsuario(string line)
@@ -147,6 +150,9 @@ namespace BuenYantar
             return null;
         }
 
+        // ====================================================================================
+        // GESTION FACTURAS
+
         public Factura StringToFactura(string s)
         {
             string[] datos = s.Split('|');
@@ -181,6 +187,37 @@ namespace BuenYantar
             sw.WriteLine(nuevo);
 
             sw.Close();
+        }
+
+        public void procesarFactura(Factura factura)
+        {
+            Collection<Item> invent = this.items();
+
+            foreach(Tuple<Item,int> elemento in factura.Contenido)
+            {
+                foreach(Item item in invent)
+                {
+                    if (elemento.Item1.Nombre.Equals(item.Nombre))
+                    {
+                        item.Cantidad = item.Cantidad - elemento.Item2;
+                        modifyItem(item);
+                    }
+                }
+            }
+        }
+
+        public Collection<Factura> facturas()
+        {
+            Collection<Factura> facturas = new Collection<Factura>();
+            Factura factura;
+
+            foreach (string line in System.IO.File.ReadLines(rutaFacturas))
+            {
+                factura = StringToFactura(line);
+                facturas.Add(factura);
+            }
+
+            return facturas;
         }
     }
 }

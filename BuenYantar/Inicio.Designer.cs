@@ -106,6 +106,7 @@ namespace BuenYantar
             this.btHistorial.TabIndex = 6;
             this.btHistorial.Text = "Historial de mis facturas";
             this.btHistorial.UseVisualStyleBackColor = false;
+            this.btHistorial.Click += new System.EventHandler(this.btHistorial_Click);
             // 
             // FormInicio
             // 

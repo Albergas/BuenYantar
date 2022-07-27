@@ -29,34 +29,35 @@ namespace BuenYantar
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.rtbFactura = new System.Windows.Forms.RichTextBox();
+            this.lbFacturas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // rtbFactura
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(343, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(416, 459);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.rtbFactura.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbFactura.Location = new System.Drawing.Point(312, 12);
+            this.rtbFactura.Name = "rtbFactura";
+            this.rtbFactura.Size = new System.Drawing.Size(416, 459);
+            this.rtbFactura.TabIndex = 0;
+            this.rtbFactura.Text = "";
             // 
-            // listBox1
+            // lbFacturas
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(262, 459);
-            this.listBox1.TabIndex = 1;
+            this.lbFacturas.FormattingEnabled = true;
+            this.lbFacturas.Location = new System.Drawing.Point(12, 12);
+            this.lbFacturas.Name = "lbFacturas";
+            this.lbFacturas.Size = new System.Drawing.Size(262, 459);
+            this.lbFacturas.TabIndex = 1;
+            this.lbFacturas.SelectedIndexChanged += new System.EventHandler(this.lbFacturas_SelectedIndexChanged);
             // 
             // HistorialFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 489);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.richTextBox1);
+            this.ClientSize = new System.Drawing.Size(748, 489);
+            this.Controls.Add(this.lbFacturas);
+            this.Controls.Add(this.rtbFactura);
             this.Name = "HistorialFacturas";
             this.Text = "HistorialFacturas";
             this.Load += new System.EventHandler(this.HistorialFacturas_Load);
@@ -66,7 +67,7 @@ namespace BuenYantar
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.RichTextBox rtbFactura;
+        private System.Windows.Forms.ListBox lbFacturas;
     }
 }
