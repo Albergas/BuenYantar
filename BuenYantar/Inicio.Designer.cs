@@ -58,6 +58,7 @@ namespace BuenYantar
             this.btFactura.TabIndex = 1;
             this.btFactura.Text = "Nueva factura";
             this.btFactura.UseVisualStyleBackColor = false;
+            this.btFactura.Click += new System.EventHandler(this.btFactura_Click);
             // 
             // label1
             // 

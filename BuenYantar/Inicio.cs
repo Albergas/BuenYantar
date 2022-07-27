@@ -34,5 +34,11 @@ namespace BuenYantar
         {
 
         }
+
+        private void btFactura_Click(object sender, EventArgs e)
+        {
+            NuevaFactura nuevaFactura = new NuevaFactura(inventario, user);
+            DialogResult d = nuevaFactura.ShowDialog();
+        }
     }
 }

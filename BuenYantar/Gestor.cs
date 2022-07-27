@@ -12,6 +12,7 @@ namespace BuenYantar
     {
         private string rutaInventario;
         private string rutaUsuarios;
+        private string rutaFacturas;
 
         public Gestor(string rutaInventario)
         {
@@ -20,6 +21,7 @@ namespace BuenYantar
 
             this.rutaInventario = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarinventario.txt";
             this.rutaUsuarios = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarusuarios.txt";
+            this.rutaFacturas = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarfacturas.txt";
         }
 
         public Item StringToItem(string line)
@@ -143,6 +145,42 @@ namespace BuenYantar
                 return null;
             }
             return null;
+        }
+
+        public Factura StringToFactura(string s)
+        {
+            string[] datos = s.Split('|');
+            Usuario user = construirUsuario(datos[0]);
+            DateTime date = Convert.ToDateTime(datos[1]);
+            int cant = Int32.Parse(datos[2]);
+
+            Factura factura = new Factura(user, date);
+
+            Item item;
+            int cantidad;
+
+            int i = 3;
+
+            for(int j = 0; j < cant; j++)
+            {
+                item = new Item(datos[i], 1000, double.Parse(datos[i+1]), 10);
+                cantidad = Int32.Parse(datos[i+2]);
+                factura.add(item, cantidad);
+                i += 3;
+            }
+
+            return factura;
+        }
+
+        public void addFactura(Factura factura)
+        {
+            string nuevo = factura.logBD();
+
+            StreamWriter sw = File.AppendText(rutaFacturas);
+
+            sw.WriteLine(nuevo);
+
+            sw.Close();
         }
     }
 }
