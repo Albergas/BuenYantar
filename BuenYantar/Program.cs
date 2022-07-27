@@ -14,6 +14,12 @@ namespace BuenYantar
         [STAThread]
         static void Main()
         {
+            Gestor g = new Gestor("a");
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Login(g));
+
             /*
             Gestor g = new Gestor("a");
             Inventario i = new Inventario(g);

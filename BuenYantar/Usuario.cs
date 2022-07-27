@@ -11,12 +11,14 @@ namespace BuenYantar
         private string nombre;
         private string hash;
         private int tipo;
+        private string nombreCompleto;
 
-        public Usuario(string nombre, string hash, int tipo)
+        public Usuario(string nombre, string hash, int tipo, string nc)
         {
             this.nombre = nombre;
             this.hash = hash;
             this.tipo = tipo;
+            this.nombreCompleto = nc;
         }
 
         public string Nombre
@@ -24,6 +26,14 @@ namespace BuenYantar
             get
             {
                 return this.nombre;
+            }
+        }
+
+        public string NombreCompleto
+        {
+            get
+            {
+                return this.nombreCompleto;
             }
         }
 

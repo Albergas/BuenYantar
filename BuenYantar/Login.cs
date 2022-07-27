@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace BuenYantar
+{
+    public partial class Login : Form
+    {
+        private Gestor gestor;
+        private bool secretPassword;
+
+        public Login(Gestor gestor)
+        {
+            this.gestor = gestor;
+            InitializeComponent();
+            this.tbPassword.PasswordChar = '•';
+            this.secretPassword = true;
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btOK_Click(object sender, EventArgs e)
+        {
+            Usuario user;
+            user = gestor.login(tbUsuario.Text, tbPassword.Text);
+            if(user == null)
+            {
+                MessageBox.Show("Error: Usuario o contraseña incorrectos");
+            }
+            else
+            {
+                Inventario i = new Inventario(gestor);
+
+                FormInicio f = new FormInicio(i, user);
+                f.ShowDialog();
+                this.Dispose();
+            }
+        }
+
+        private void btSecreto_Click(object sender, EventArgs e)
+        {
+            if (this.secretPassword)
+                this.tbPassword.PasswordChar = '\0';
+            else
+                this.tbPassword.PasswordChar = '•';
+            this.secretPassword = !this.secretPassword;
+        }
+    }
+}

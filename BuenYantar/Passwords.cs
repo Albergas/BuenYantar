@@ -20,5 +20,10 @@ namespace BuenYantar
 
             return builder.ToString();
         }
+
+        public static bool check(string password, string hash)
+        {
+            return Passwords.MD5(password).Equals(hash);
+        }
     }
 }

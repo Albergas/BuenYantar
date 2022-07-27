@@ -102,9 +102,47 @@ namespace BuenYantar
             this.addItem(item);
         }
 
-        public bool existeUsuario(string user)
-        {
 
+        // GESTION USUARIOS
+
+        public Usuario StringToUsuario(string line)
+        {
+            string[] datos = line.Split('|');
+            int tipo = Int32.Parse(datos[2]);
+            return new Usuario(datos[0], datos[1], tipo, datos[3]);
+        }
+
+        public string UsuarioToString(Usuario user)
+        {
+            string s = user.Nombre + "|" + user.Hash + "|" + user.Tipo + "|" + user.NombreCompleto;
+            return s;
+        }
+
+        public Usuario construirUsuario(string nombre)
+        {
+            Usuario user;
+            foreach (string line in System.IO.File.ReadLines(rutaUsuarios))
+            {
+                user = StringToUsuario(line);
+                if (nombre.Equals(user.Nombre))
+                    return user;
+            }
+
+            return null;
+        }
+
+        public Usuario login(string nombre, string password)
+        {
+            Usuario user = construirUsuario(nombre);
+            if(user != null)
+            {
+                if(Passwords.check(password, user.Hash))
+                {
+                    return user;
+                }
+                return null;
+            }
+            return null;
         }
     }
 }
