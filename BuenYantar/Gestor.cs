@@ -10,11 +10,16 @@ namespace BuenYantar
 {
     public class Gestor
     {
-        private string ruta;
+        private string rutaInventario;
+        private string rutaUsuarios;
 
-        public Gestor(string ruta)
+        public Gestor(string rutaInventario)
         {
-            this.ruta = ruta;
+            this.rutaInventario = rutaInventario;
+
+
+            this.rutaInventario = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarinventario.txt";
+            this.rutaUsuarios = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarusuarios.txt";
         }
 
         public Item StringToItem(string line)
@@ -40,7 +45,7 @@ namespace BuenYantar
             Collection<Item> items = new Collection<Item>();
             Item item;
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\aleja\OneDrive\Escritorio\buenyantarinventario.txt"))
+            foreach (string line in System.IO.File.ReadLines(rutaInventario))
             {
                 lineas.Add(line);
                 item = this.StringToItem(line);
@@ -54,7 +59,7 @@ namespace BuenYantar
         {
             string nuevo = ItemToString(item);
 
-            StreamWriter sw = File.AppendText(@"C:\Users\aleja\OneDrive\Escritorio\buenyantarinventario.txt");
+            StreamWriter sw = File.AppendText(rutaInventario);
 
             sw.WriteLine(nuevo);
 
@@ -67,14 +72,14 @@ namespace BuenYantar
             int i = 0;
             int j = 0;
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\aleja\OneDrive\Escritorio\buenyantarinventario.txt"))
+            foreach (string line in System.IO.File.ReadLines(rutaInventario))
             {
                 lineas[i] = line;
                 Console.WriteLine(line);
                 i++;
             }
 
-            StreamWriter sw = new StreamWriter(@"C:\Users\aleja\OneDrive\Escritorio\buenyantarinventario.txt");
+            StreamWriter sw = new StreamWriter(rutaInventario);
             Item item;
 
             while (j <= i)
@@ -95,6 +100,11 @@ namespace BuenYantar
         {
             this.removeItem(item.Nombre);
             this.addItem(item);
+        }
+
+        public bool existeUsuario(string user)
+        {
+
         }
     }
 }

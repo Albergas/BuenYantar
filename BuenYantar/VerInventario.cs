@@ -38,6 +38,13 @@ namespace BuenYantar
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.btGuardar.Visible = false;
+            this.btGuardarNuevo.Visible = false;
+
+            this.btModificar.Enabled = true;
+            this.btNuevo.Enabled = true;
+            this.btEliminar.Enabled = true;
+
             if(this.lbInventario.SelectedItem == null)
             {
                 seleccionado = null;
@@ -231,20 +238,89 @@ namespace BuenYantar
 
         private void btNuevo_Click(object sender, EventArgs e)
         {
+            this.lbInventario.SelectedItem = null;
+
             this.btModificar.Enabled = false;
             this.btEliminar.Enabled = false;
 
             this.tbNombre.ReadOnly = false;
             this.tbStock.ReadOnly = false;
-            this.tbStock.ReadOnly = false;
+            this.tbStockSeguridad.ReadOnly = false;
             this.tbPrecio.ReadOnly = false;
+
+            this.tbNombre.Text = "";
+            this.tbStock.Text = "";
+            this.tbStockSeguridad.Text = "";
+            this.tbPrecio.Text = "";
 
             this.btGuardarNuevo.Visible = true;
         }
 
         private void btGuardarNuevo_Click(object sender, EventArgs e)
         {
-            this.btGuardarNuevo.Visible = false;
+
+            int cantidad, seguridad;
+            double precio;
+
+            if (Int32.TryParse(tbStock.Text, out cantidad))
+            {
+                if (Int32.TryParse(tbStockSeguridad.Text, out seguridad))
+                {
+                    if (double.TryParse(tbPrecio.Text, out precio))
+                    {
+                        if (!tbNombre.Text.Contains('|'))
+                        {
+
+                            Item nuevoItem = new Item(tbNombre.Text, cantidad, precio, seguridad);
+
+                            MessageBox.Show("Nuevo producto guardados");
+
+                            inventario.addItem(nuevoItem);
+
+                            this.tbNombre.ReadOnly = true;
+                            this.tbStock.ReadOnly = true;
+                            this.tbStockSeguridad.ReadOnly = true;
+                            this.tbPrecio.ReadOnly = true;
+
+                            this.btStockMenos.Visible = false;
+                            this.btStockMas.Visible = false;
+                            this.btSeguridadMenos.Visible = false;
+                            this.btSeguridadMas.Visible = false;
+
+                            this.btGuardar.Visible = false;
+                            this.btGuardarNuevo.Visible = false;
+
+                            this.actualizarLista();
+                        }
+                        else
+                            MessageBox.Show("Error: el nombre del producto no puede contener '|'");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: precio no válido");
+                    }
+                }
+            }
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e)
+        {
+            if(lbInventario.SelectedItem == null)
+            {
+                MessageBox.Show("Ningún producto seleccionado");
+            }
+            else
+            {
+                string aBorrar = lbInventario.SelectedItem.ToString();
+
+                DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar del registro el producto '" + aBorrar + "'?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+                if(result == DialogResult.Yes)
+                {
+                    this.inventario.removeItem(aBorrar);
+                    this.actualizarLista();
+                    MessageBox.Show("Se eliminó del registro el producto " + aBorrar);
+                }
+            }
         }
     }
 }

@@ -51,7 +51,7 @@ namespace BuenYantar
             if (!existe(item.Nombre))
             {
                 gestor.addItem(item);
-                inventario.Add(item);
+                this.inventario = gestor.items();
                 return true;
             }
 
@@ -62,11 +62,13 @@ namespace BuenYantar
         public void removeItem(string nombre)
         {
             gestor.removeItem(nombre);
+            this.inventario = gestor.items();
         }
 
         public void modifyItem(Item item)
         {
             gestor.modifyItem(item);
+            this.inventario = gestor.items();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace BuenYantar
         [STAThread]
         static void Main()
         {
+            /*
             Gestor g = new Gestor("a");
             Inventario i = new Inventario(g);
 
@@ -36,6 +37,12 @@ namespace BuenYantar
 
             Console.WriteLine(i.log());
             */
+
+            Console.WriteLine(Passwords.MD5("hola") == Passwords.test);
+            Console.WriteLine(Passwords.MD5("hOla") == Passwords.test);
+            Console.WriteLine(Passwords.MD5("holA") == Passwords.test);
+            Console.WriteLine(Passwords.MD5("caballo123") == Passwords.test);
+            Console.WriteLine(Passwords.MD5("maguilo"));
         }
     }
 }

@@ -219,6 +219,7 @@ namespace BuenYantar
             this.btEliminar.TabIndex = 18;
             this.btEliminar.Text = "Eliminar producto";
             this.btEliminar.UseVisualStyleBackColor = false;
+            this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
             // btStockMenos
             // 
