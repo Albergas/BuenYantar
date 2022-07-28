@@ -36,6 +36,9 @@ namespace BuenYantar
             this.btReponer = new System.Windows.Forms.Button();
             this.btUsuarios = new System.Windows.Forms.Button();
             this.btHistorial = new System.Windows.Forms.Button();
+            this.btConfiguracion = new System.Windows.Forms.Button();
+            this.btCerrarSesion = new System.Windows.Forms.Button();
+            this.btTodasFacturas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btInventario
@@ -74,7 +77,7 @@ namespace BuenYantar
             this.tbUser.Location = new System.Drawing.Point(137, 17);
             this.tbUser.Name = "tbUser";
             this.tbUser.ReadOnly = true;
-            this.tbUser.Size = new System.Drawing.Size(200, 20);
+            this.tbUser.Size = new System.Drawing.Size(313, 20);
             this.tbUser.TabIndex = 3;
             // 
             // btReponer
@@ -86,6 +89,7 @@ namespace BuenYantar
             this.btReponer.TabIndex = 4;
             this.btReponer.Text = "Informe reponer";
             this.btReponer.UseVisualStyleBackColor = false;
+            this.btReponer.Click += new System.EventHandler(this.btReponer_Click);
             // 
             // btUsuarios
             // 
@@ -96,6 +100,7 @@ namespace BuenYantar
             this.btUsuarios.TabIndex = 5;
             this.btUsuarios.Text = "Usuarios";
             this.btUsuarios.UseVisualStyleBackColor = false;
+            this.btUsuarios.Click += new System.EventHandler(this.btUsuarios_Click);
             // 
             // btHistorial
             // 
@@ -104,15 +109,52 @@ namespace BuenYantar
             this.btHistorial.Name = "btHistorial";
             this.btHistorial.Size = new System.Drawing.Size(75, 66);
             this.btHistorial.TabIndex = 6;
-            this.btHistorial.Text = "Historial de mis facturas";
+            this.btHistorial.Text = "Mis facturas";
             this.btHistorial.UseVisualStyleBackColor = false;
             this.btHistorial.Click += new System.EventHandler(this.btHistorial_Click);
+            // 
+            // btConfiguracion
+            // 
+            this.btConfiguracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btConfiguracion.Location = new System.Drawing.Point(262, 152);
+            this.btConfiguracion.Name = "btConfiguracion";
+            this.btConfiguracion.Size = new System.Drawing.Size(75, 66);
+            this.btConfiguracion.TabIndex = 7;
+            this.btConfiguracion.Text = "Config";
+            this.btConfiguracion.UseVisualStyleBackColor = false;
+            this.btConfiguracion.Click += new System.EventHandler(this.btConfiguracion_Click);
+            // 
+            // btCerrarSesion
+            // 
+            this.btCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btCerrarSesion.DialogResult = System.Windows.Forms.DialogResult.Retry;
+            this.btCerrarSesion.Location = new System.Drawing.Point(375, 152);
+            this.btCerrarSesion.Name = "btCerrarSesion";
+            this.btCerrarSesion.Size = new System.Drawing.Size(75, 66);
+            this.btCerrarSesion.TabIndex = 9;
+            this.btCerrarSesion.Text = "Cerrar sesión";
+            this.btCerrarSesion.UseVisualStyleBackColor = false;
+            this.btCerrarSesion.Click += new System.EventHandler(this.btCerrarSesion_Click);
+            // 
+            // btTodasFacturas
+            // 
+            this.btTodasFacturas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(255)))));
+            this.btTodasFacturas.Location = new System.Drawing.Point(375, 59);
+            this.btTodasFacturas.Name = "btTodasFacturas";
+            this.btTodasFacturas.Size = new System.Drawing.Size(75, 66);
+            this.btTodasFacturas.TabIndex = 8;
+            this.btTodasFacturas.Text = "Todas las facturas";
+            this.btTodasFacturas.UseVisualStyleBackColor = false;
+            this.btTodasFacturas.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 245);
+            this.ClientSize = new System.Drawing.Size(478, 245);
+            this.Controls.Add(this.btCerrarSesion);
+            this.Controls.Add(this.btTodasFacturas);
+            this.Controls.Add(this.btConfiguracion);
             this.Controls.Add(this.btHistorial);
             this.Controls.Add(this.btUsuarios);
             this.Controls.Add(this.btReponer);
@@ -137,6 +179,9 @@ namespace BuenYantar
         private System.Windows.Forms.Button btReponer;
         private System.Windows.Forms.Button btUsuarios;
         private System.Windows.Forms.Button btHistorial;
+        private System.Windows.Forms.Button btConfiguracion;
+        private System.Windows.Forms.Button btCerrarSesion;
+        private System.Windows.Forms.Button btTodasFacturas;
     }
 }
 

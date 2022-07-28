@@ -15,11 +15,13 @@ namespace BuenYantar
 
         private Inventario inventario;
         private Item seleccionado;
+        private Usuario user;
 
-        public VerInventario(Inventario inventario)
+        public VerInventario(Inventario inventario, Usuario user)
         {
             InitializeComponent();
             this.inventario = inventario;
+            this.user = user;
             this.seleccionado = null;
 
             foreach(Item item in this.inventario.Items)
@@ -27,13 +29,17 @@ namespace BuenYantar
                 this.lbInventario.Items.Add(item.Nombre);
             }
 
-            this.tbStock.ReadOnly = true;
-            this.tbStockSeguridad.ReadOnly = true;
-
             this.btGuardar.Visible = false;
             this.btGuardarNuevo.Visible = false;
 
             this.actualizarDatos();
+
+            if(this.user.Tipo != 0)
+            {
+                Controls.Remove(btEliminar);
+                Controls.Remove(btModificar);
+                Controls.Remove(btNuevo);
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,13 +70,10 @@ namespace BuenYantar
         {
             this.tbNombre.ReadOnly = true;
             this.tbPrecio.ReadOnly = true;
+            this.tbStock.ReadOnly = true;
+            this.tbStockSeguridad.ReadOnly = true;
 
             this.lbAvisoReponer.Visible = false;
-
-            this.btStockMenos.Visible = false;
-            this.btStockMas.Visible = false;
-            this.btSeguridadMenos.Visible = false;
-            this.btSeguridadMas.Visible = false;
 
             this.btGuardar.Visible = false;
             this.btGuardarNuevo.Visible = false;
@@ -147,11 +150,8 @@ namespace BuenYantar
         {
             this.tbNombre.ReadOnly = false;
             this.tbPrecio.ReadOnly = false;
-
-            this.btStockMenos.Visible = true;
-            this.btStockMas.Visible = true;
-            this.btSeguridadMenos.Visible = true;
-            this.btSeguridadMas.Visible = true;
+            this.tbStock.ReadOnly = false;
+            this.tbStockSeguridad.ReadOnly = false;
 
             this.btGuardar.Visible = true;
         }
@@ -181,11 +181,6 @@ namespace BuenYantar
                             this.tbStock.ReadOnly = true;
                             this.tbStockSeguridad.ReadOnly = true;
                             this.tbPrecio.ReadOnly = true;
-
-                            this.btStockMenos.Visible = false;
-                            this.btStockMas.Visible = false;
-                            this.btSeguridadMenos.Visible = false;
-                            this.btSeguridadMas.Visible = false;
 
                             this.btGuardar.Visible = false;
                         }
@@ -282,11 +277,6 @@ namespace BuenYantar
                             this.tbStockSeguridad.ReadOnly = true;
                             this.tbPrecio.ReadOnly = true;
 
-                            this.btStockMenos.Visible = false;
-                            this.btStockMas.Visible = false;
-                            this.btSeguridadMenos.Visible = false;
-                            this.btSeguridadMas.Visible = false;
-
                             this.btGuardar.Visible = false;
                             this.btGuardarNuevo.Visible = false;
 
@@ -321,6 +311,25 @@ namespace BuenYantar
                     MessageBox.Show("Se eliminó del registro el producto " + aBorrar);
                 }
             }
+        }
+
+        private void tbStock_TextChanged(object sender, EventArgs e)
+        {
+            int n;
+            if (!Int32.TryParse(tbStock.Text, out n))
+                tbStock.Text = "";
+        }
+
+        private void tbStockSeguridad_TextChanged(object sender, EventArgs e)
+        {
+            int n;
+            if (!Int32.TryParse(tbStockSeguridad.Text, out n))
+                tbStockSeguridad.Text = "";
+        }
+
+        private void VerInventario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

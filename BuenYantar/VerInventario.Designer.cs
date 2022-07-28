@@ -47,10 +47,6 @@ namespace BuenYantar
             this.btGuardar = new System.Windows.Forms.Button();
             this.btNuevo = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
-            this.btStockMenos = new System.Windows.Forms.Button();
-            this.btStockMas = new System.Windows.Forms.Button();
-            this.btSeguridadMenos = new System.Windows.Forms.Button();
-            this.btSeguridadMas = new System.Windows.Forms.Button();
             this.btGuardarNuevo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -129,6 +125,7 @@ namespace BuenYantar
             this.tbStock.Name = "tbStock";
             this.tbStock.Size = new System.Drawing.Size(174, 20);
             this.tbStock.TabIndex = 9;
+            this.tbStock.TextChanged += new System.EventHandler(this.tbStock_TextChanged);
             // 
             // tbStockSeguridad
             // 
@@ -136,6 +133,7 @@ namespace BuenYantar
             this.tbStockSeguridad.Name = "tbStockSeguridad";
             this.tbStockSeguridad.Size = new System.Drawing.Size(174, 20);
             this.tbStockSeguridad.TabIndex = 10;
+            this.tbStockSeguridad.TextChanged += new System.EventHandler(this.tbStockSeguridad_TextChanged);
             // 
             // tbPrecio
             // 
@@ -221,46 +219,6 @@ namespace BuenYantar
             this.btEliminar.UseVisualStyleBackColor = false;
             this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
-            // btStockMenos
-            // 
-            this.btStockMenos.Location = new System.Drawing.Point(528, 90);
-            this.btStockMenos.Name = "btStockMenos";
-            this.btStockMenos.Size = new System.Drawing.Size(22, 21);
-            this.btStockMenos.TabIndex = 19;
-            this.btStockMenos.Text = "-";
-            this.btStockMenos.UseVisualStyleBackColor = true;
-            this.btStockMenos.Click += new System.EventHandler(this.btStockMenos_Click);
-            // 
-            // btStockMas
-            // 
-            this.btStockMas.Location = new System.Drawing.Point(556, 89);
-            this.btStockMas.Name = "btStockMas";
-            this.btStockMas.Size = new System.Drawing.Size(22, 21);
-            this.btStockMas.TabIndex = 20;
-            this.btStockMas.Text = "+";
-            this.btStockMas.UseVisualStyleBackColor = true;
-            this.btStockMas.Click += new System.EventHandler(this.btStockMas_Click);
-            // 
-            // btSeguridadMenos
-            // 
-            this.btSeguridadMenos.Location = new System.Drawing.Point(528, 122);
-            this.btSeguridadMenos.Name = "btSeguridadMenos";
-            this.btSeguridadMenos.Size = new System.Drawing.Size(22, 21);
-            this.btSeguridadMenos.TabIndex = 21;
-            this.btSeguridadMenos.Text = "-";
-            this.btSeguridadMenos.UseVisualStyleBackColor = true;
-            this.btSeguridadMenos.Click += new System.EventHandler(this.btSeguridadMenos_Click);
-            // 
-            // btSeguridadMas
-            // 
-            this.btSeguridadMas.Location = new System.Drawing.Point(556, 122);
-            this.btSeguridadMas.Name = "btSeguridadMas";
-            this.btSeguridadMas.Size = new System.Drawing.Size(22, 21);
-            this.btSeguridadMas.TabIndex = 22;
-            this.btSeguridadMas.Text = "+";
-            this.btSeguridadMas.UseVisualStyleBackColor = true;
-            this.btSeguridadMas.Click += new System.EventHandler(this.btSeguridadMas_Click);
-            // 
             // btGuardarNuevo
             // 
             this.btGuardarNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -278,10 +236,6 @@ namespace BuenYantar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 470);
             this.Controls.Add(this.btGuardarNuevo);
-            this.Controls.Add(this.btSeguridadMas);
-            this.Controls.Add(this.btSeguridadMenos);
-            this.Controls.Add(this.btStockMas);
-            this.Controls.Add(this.btStockMenos);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btNuevo);
             this.Controls.Add(this.btGuardar);
@@ -302,6 +256,7 @@ namespace BuenYantar
             this.Controls.Add(this.lbInventario);
             this.Name = "VerInventario";
             this.Text = "VerInventario";
+            this.Load += new System.EventHandler(this.VerInventario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,10 +282,6 @@ namespace BuenYantar
         private System.Windows.Forms.Button btGuardar;
         private System.Windows.Forms.Button btNuevo;
         private System.Windows.Forms.Button btEliminar;
-        private System.Windows.Forms.Button btStockMenos;
-        private System.Windows.Forms.Button btStockMas;
-        private System.Windows.Forms.Button btSeguridadMenos;
-        private System.Windows.Forms.Button btSeguridadMas;
         private System.Windows.Forms.Button btGuardarNuevo;
     }
 }

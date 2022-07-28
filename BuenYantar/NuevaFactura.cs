@@ -25,6 +25,7 @@ namespace BuenYantar
             this.inventario = inventario;
             this.seleccionado = null;
             this.user = user;
+            lbAvisos.Text = "";
 
             foreach (Item item in this.inventario.Items)
             {
@@ -139,6 +140,8 @@ namespace BuenYantar
             {
                 factura.add(seleccionado, Int32.Parse(tbCantidad.Text));
 
+                //if(!sufi)
+
                 tbCantidad.Text = "";
 
                 esconder();
@@ -156,6 +159,7 @@ namespace BuenYantar
                 gestor.addFactura(factura);
                 gestor.procesarFactura(factura);
                 MessageBox.Show("La factura se guardó correctamente. El stock se ha actualizado");
+                this.Dispose();
             }
         }
 
@@ -163,6 +167,11 @@ namespace BuenYantar
         {
             factura = new Factura(user);
             actualizarListaFactura();
+        }
+
+        private void NuevaFactura_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

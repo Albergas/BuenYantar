@@ -46,6 +46,7 @@ namespace BuenYantar
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btReset = new System.Windows.Forms.Button();
+            this.lbAvisos = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbInventario
@@ -201,11 +202,20 @@ namespace BuenYantar
             this.btReset.UseVisualStyleBackColor = false;
             this.btReset.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // lbAvisos
+            // 
+            this.lbAvisos.AutoSize = true;
+            this.lbAvisos.Location = new System.Drawing.Point(258, 349);
+            this.lbAvisos.Name = "lbAvisos";
+            this.lbAvisos.Size = new System.Drawing.Size(0, 13);
+            this.lbAvisos.TabIndex = 18;
+            // 
             // NuevaFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 473);
+            this.Controls.Add(this.lbAvisos);
             this.Controls.Add(this.btReset);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbTotal);
@@ -225,6 +235,7 @@ namespace BuenYantar
             this.Controls.Add(this.lbInventario);
             this.Name = "NuevaFactura";
             this.Text = "NuevaFactura";
+            this.Load += new System.EventHandler(this.NuevaFactura_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +260,6 @@ namespace BuenYantar
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btReset;
+        private System.Windows.Forms.Label lbAvisos;
     }
 }

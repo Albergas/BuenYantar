@@ -38,10 +38,18 @@ namespace BuenYantar
             }
             else
             {
-
+                this.Visible = false;
                 FormInicio f = new FormInicio(gestor, user);
-                f.ShowDialog();
-                this.Dispose();
+                DialogResult d = f.ShowDialog();
+
+                if(d != DialogResult.Retry)
+                {
+                    this.Dispose();
+                }
+                else
+                {
+                    this.Visible = true;
+                }
             }
         }
 

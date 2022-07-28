@@ -44,6 +44,18 @@ namespace BuenYantar
             return s;
         }
 
+        public bool suficienteCantidad(string nombre, int n)
+        {
+            foreach(Item item in items())
+            {
+                if (item.Nombre.Equals(nombre))
+                {
+                    return item.Cantidad >= n;
+                }
+            }
+            return false;
+        }
+
         public Collection<Item> items()
         {
             Collection<String> lineas = new Collection<string>();
@@ -80,7 +92,6 @@ namespace BuenYantar
             foreach (string line in System.IO.File.ReadLines(rutaInventario))
             {
                 lineas[i] = line;
-                Console.WriteLine(line);
                 i++;
             }
 
@@ -136,6 +147,19 @@ namespace BuenYantar
             return null;
         }
 
+        public Usuario construirUsuarioNombreCompleto(string nombre)
+        {
+            Usuario user;
+            foreach (string line in System.IO.File.ReadLines(rutaUsuarios))
+            {
+                user = StringToUsuario(line);
+                if (nombre.Equals(user.NombreCompleto))
+                    return user;
+            }
+
+            return null;
+        }
+
         public Usuario login(string nombre, string password)
         {
             Usuario user = construirUsuario(nombre);
@@ -148,6 +172,98 @@ namespace BuenYantar
                 return null;
             }
             return null;
+        }
+
+        public void addUser(Usuario user)
+        {
+            string nuevo = UsuarioToString(user);
+            StreamWriter sw = File.AppendText(rutaUsuarios);
+            sw.WriteLine(nuevo);
+            sw.Close();
+        }
+
+        public void removeUser(string nombre)
+        {
+            string[] lineas = new string[1000];
+            int i = 0;
+            int j = 0;
+
+            foreach (string line in System.IO.File.ReadLines(rutaUsuarios))
+            {
+                lineas[i] = line;
+                i++;
+            }
+
+            StreamWriter sw = new StreamWriter(rutaUsuarios);
+            Usuario user;
+
+            while (j <= i)
+            {
+                if (lineas[j] != "" && lineas[j] != null)
+                {
+                    user = StringToUsuario(lineas[j]);
+                    if (!user.Nombre.Equals(nombre))
+                        sw.WriteLine(lineas[j]);
+                }
+                j++;
+            }
+
+            sw.Close();
+        }
+
+        public void removeUserNC(string nombre)
+        {
+            string[] lineas = new string[1000];
+            int i = 0;
+            int j = 0;
+
+            foreach (string line in System.IO.File.ReadLines(rutaUsuarios))
+            {
+                lineas[i] = line;
+                i++;
+            }
+
+            StreamWriter sw = new StreamWriter(rutaUsuarios);
+            Usuario user;
+
+            while (j <= i)
+            {
+                if (lineas[j] != "" && lineas[j] != null)
+                {
+                    user = StringToUsuario(lineas[j]);
+                    if (!user.NombreCompleto.Equals(nombre))
+                        sw.WriteLine(lineas[j]);
+                }
+                j++;
+            }
+
+            sw.Close();
+        }
+
+        public void modifyUser(Usuario user)
+        {
+            this.removeUser(user.Nombre);
+            this.addUser(user);
+        }
+
+        public void modifyUserNC(Usuario user)
+        {
+            this.removeUserNC(user.NombreCompleto);
+            this.addUser(user);
+        }
+
+        public Collection<Usuario> usuarios()
+        {
+            Collection<Usuario> users = new Collection<Usuario>();
+            Usuario user;
+
+            foreach (string line in System.IO.File.ReadLines(rutaUsuarios))
+            {
+                user = this.StringToUsuario(line);
+                users.Add(user);
+            }
+
+            return users;
         }
 
         // ====================================================================================
