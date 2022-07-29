@@ -11,8 +11,12 @@ namespace BuenYantar
     public class Gestor
     {
         private string rutaInventario;
+        private string rutaInventarioCopiaSeguridad;
         private string rutaUsuarios;
+        private string rutaUsuariosCopiaSeguridad;
         private string rutaFacturas;
+        private string rutaFacturasCopiaSeguridad;
+
 
         public Gestor(string rutaInventario)
         {
@@ -22,6 +26,10 @@ namespace BuenYantar
             this.rutaInventario = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarinventario.txt";
             this.rutaUsuarios = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarusuarios.txt";
             this.rutaFacturas = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarfacturas.txt";
+
+            this.rutaInventarioCopiaSeguridad = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\backup\buenyantarinventariobackup.txt";
+            this.rutaUsuariosCopiaSeguridad = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\backup\buenyantarusuariosbackup.txt";
+            this.rutaFacturasCopiaSeguridad = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\backup\buenyantarfacturasbackup.txt";
         }
 
         // ====================================================================================
@@ -77,10 +85,12 @@ namespace BuenYantar
             string nuevo = ItemToString(item);
 
             StreamWriter sw = File.AppendText(rutaInventario);
-
             sw.WriteLine(nuevo);
-
             sw.Close();
+
+            StreamWriter swBackup = File.AppendText(rutaInventarioCopiaSeguridad);
+            swBackup.WriteLine(nuevo);
+            swBackup.Close();
         }
 
         public void removeItem(string nombre)
@@ -180,6 +190,10 @@ namespace BuenYantar
             StreamWriter sw = File.AppendText(rutaUsuarios);
             sw.WriteLine(nuevo);
             sw.Close();
+
+            StreamWriter swBackup = File.AppendText(rutaUsuariosCopiaSeguridad);
+            swBackup.WriteLine(nuevo);
+            swBackup.Close();
         }
 
         public void removeUser(string nombre)
@@ -300,10 +314,12 @@ namespace BuenYantar
             string nuevo = factura.logBD();
 
             StreamWriter sw = File.AppendText(rutaFacturas);
-
             sw.WriteLine(nuevo);
-
             sw.Close();
+
+            StreamWriter swBackup = File.AppendText(rutaFacturasCopiaSeguridad);
+            swBackup.WriteLine(nuevo);
+            swBackup.Close();
         }
 
         public void procesarFactura(Factura factura)

@@ -160,7 +160,8 @@ namespace BuenYantar
         {
             int cantidad, seguridad;
             double precio;
-            if(Int32.TryParse(tbStock.Text, out cantidad))
+            arreglarPrecio();
+            if (Int32.TryParse(tbStock.Text, out cantidad))
             {
                 if(Int32.TryParse(tbStockSeguridad.Text, out seguridad))
                 {
@@ -256,6 +257,7 @@ namespace BuenYantar
 
             int cantidad, seguridad;
             double precio;
+            arreglarPrecio();
 
             if (Int32.TryParse(tbStock.Text, out cantidad))
             {
@@ -330,6 +332,20 @@ namespace BuenYantar
         private void VerInventario_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void tbPrecio_TextChanged(object sender, EventArgs e)
+        {
+            double n;
+            if(!double.TryParse(tbPrecio.Text, out n))
+            {
+                tbPrecio.Text = "";
+            }
+        }
+
+        private void arreglarPrecio()
+        {
+            tbPrecio.Text = tbPrecio.Text.Replace(".", ",");
         }
     }
 }

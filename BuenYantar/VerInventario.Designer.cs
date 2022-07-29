@@ -141,6 +141,7 @@ namespace BuenYantar
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(174, 20);
             this.tbPrecio.TabIndex = 11;
+            this.tbPrecio.TextChanged += new System.EventHandler(this.tbPrecio_TextChanged);
             // 
             // lbAvisoReponer
             // 
