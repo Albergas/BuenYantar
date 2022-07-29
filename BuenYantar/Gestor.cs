@@ -18,11 +18,9 @@ namespace BuenYantar
         private string rutaFacturasCopiaSeguridad;
 
 
-        public Gestor(string rutaInventario)
+        public Gestor()
         {
-            this.rutaInventario = rutaInventario;
-
-
+            /*
             this.rutaInventario = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarinventario.txt";
             this.rutaUsuarios = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarusuarios.txt";
             this.rutaFacturas = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\buenyantarfacturas.txt";
@@ -30,6 +28,15 @@ namespace BuenYantar
             this.rutaInventarioCopiaSeguridad = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\backup\buenyantarinventariobackup.txt";
             this.rutaUsuariosCopiaSeguridad = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\backup\buenyantarusuariosbackup.txt";
             this.rutaFacturasCopiaSeguridad = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\backup\buenyantarfacturasbackup.txt";
+            */
+
+            this.rutaInventario = @"C:\BuenYantarBD\buenyantarinventario.txt";
+            this.rutaUsuarios = @"C:\BuenYantarBD\buenyantarusuarios.txt";
+            this.rutaFacturas = @"C:\BuenYantarBD\buenyantarfacturas.txt";
+
+            this.rutaInventarioCopiaSeguridad = @"C:\BuenYantarBD\backup\buenyantarinventariobackup.txt";
+            this.rutaUsuariosCopiaSeguridad = @"C:\BuenYantarBD\backup\buenyantarusuariosbackup.txt";
+            this.rutaFacturasCopiaSeguridad = @"C:\BuenYantarBD\backup\buenyantarfacturasbackup.txt";
         }
 
         // ====================================================================================
