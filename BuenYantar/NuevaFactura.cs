@@ -140,7 +140,8 @@ namespace BuenYantar
             {
                 factura.add(seleccionado, Int32.Parse(tbCantidad.Text));
 
-                //if(!sufi)
+                if (!gestor.suficienteCantidad(seleccionado.Nombre, Int32.Parse(tbCantidad.Text)))
+                    lbAvisos.Text = "AVISO: estás incluyendo en la factura más del stock registrado.\nEl stock quedará en negativo si aceptas la factura.";
 
                 tbCantidad.Text = "";
 
@@ -166,6 +167,7 @@ namespace BuenYantar
         private void button1_Click_1(object sender, EventArgs e)
         {
             factura = new Factura(user);
+            lbAvisos.Text = "";
             actualizarListaFactura();
         }
 

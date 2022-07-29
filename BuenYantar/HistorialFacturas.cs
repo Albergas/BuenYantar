@@ -221,5 +221,13 @@ namespace BuenYantar
                 tbAno.Text = "";
             actualizarLista();
         }
+
+        private void btInforme_Click(object sender, EventArgs e)
+        {
+            if(lbFacturas.Items.Count > 0)
+            {
+                rtbFactura.Text = Factura.logMerge(facturasMostradas);
+            }
+        }
     }
 }

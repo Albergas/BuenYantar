@@ -37,6 +37,7 @@ namespace BuenYantar
             this.label3 = new System.Windows.Forms.Label();
             this.cbPermisos = new System.Windows.Forms.CheckBox();
             this.btNuevo = new System.Windows.Forms.Button();
+            this.btEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbUsuarios
@@ -109,11 +110,23 @@ namespace BuenYantar
             this.btNuevo.UseVisualStyleBackColor = false;
             this.btNuevo.Click += new System.EventHandler(this.btNuevo_Click);
             // 
+            // btEliminar
+            // 
+            this.btEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.btEliminar.Location = new System.Drawing.Point(423, 368);
+            this.btEliminar.Name = "btEliminar";
+            this.btEliminar.Size = new System.Drawing.Size(75, 64);
+            this.btEliminar.TabIndex = 9;
+            this.btEliminar.Text = "Eliminar usuario";
+            this.btEliminar.UseVisualStyleBackColor = false;
+            this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
+            // 
             // GestionarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(658, 450);
+            this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btNuevo);
             this.Controls.Add(this.cbPermisos);
             this.Controls.Add(this.label3);
@@ -140,5 +153,6 @@ namespace BuenYantar
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbPermisos;
         private System.Windows.Forms.Button btNuevo;
+        private System.Windows.Forms.Button btEliminar;
     }
 }

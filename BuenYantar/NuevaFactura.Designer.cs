@@ -205,6 +205,8 @@ namespace BuenYantar
             // lbAvisos
             // 
             this.lbAvisos.AutoSize = true;
+            this.lbAvisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAvisos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbAvisos.Location = new System.Drawing.Point(258, 349);
             this.lbAvisos.Name = "lbAvisos";
             this.lbAvisos.Size = new System.Drawing.Size(0, 13);

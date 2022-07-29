@@ -52,9 +52,9 @@ namespace BuenYantar
 
                             foreach (Factura factura in facturas)
                             {
-                                if (factura.User.NombreCompleto.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Year.ToString().Contains(ano.ToString()) && factura.Date.Month.ToString().Contains(mes.ToString()) && factura.Date.Day.ToString().Contains(dia.ToString()))
+                                if (factura.NombreSocio.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Year.ToString().Contains(ano.ToString()) && factura.Date.Month.ToString().Contains(mes.ToString()) && factura.Date.Day.ToString().Contains(dia.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -64,9 +64,9 @@ namespace BuenYantar
                         {
                             foreach (Factura factura in facturas)
                             {
-                                if (factura.User.NombreCompleto.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Month.ToString().Contains(mes.ToString()) && factura.Date.Day.ToString().Contains(dia.ToString()))
+                                if (factura.NombreSocio.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Month.ToString().Contains(mes.ToString()) && factura.Date.Day.ToString().Contains(dia.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -81,9 +81,9 @@ namespace BuenYantar
 
                             foreach (Factura factura in facturas)
                             {
-                                if (factura.User.NombreCompleto.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Year.ToString().Contains(ano.ToString()) && factura.Date.Day.ToString().Contains(dia.ToString()))
+                                if (factura.NombreSocio.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Year.ToString().Contains(ano.ToString()) && factura.Date.Day.ToString().Contains(dia.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -93,9 +93,9 @@ namespace BuenYantar
                         {
                             foreach (Factura factura in facturas)
                             {
-                                if (factura.User.NombreCompleto.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Day.ToString().Contains(dia.ToString()))
+                                if (factura.NombreSocio.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Day.ToString().Contains(dia.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -115,9 +115,9 @@ namespace BuenYantar
 
                             foreach (Factura factura in facturas)
                             {
-                                if (factura.User.NombreCompleto.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Year.ToString().Contains(ano.ToString()) && factura.Date.Month.ToString().Contains(mes.ToString()))
+                                if (factura.NombreSocio.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Year.ToString().Contains(ano.ToString()) && factura.Date.Month.ToString().Contains(mes.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -127,9 +127,9 @@ namespace BuenYantar
                         {
                             foreach (Factura factura in facturas)
                             {
-                                if (factura.User.NombreCompleto.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Month.ToString().Contains(mes.ToString()))
+                                if (factura.NombreSocio.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Month.ToString().Contains(mes.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -144,9 +144,9 @@ namespace BuenYantar
 
                             foreach (Factura factura in facturas)
                             {
-                                if (factura.User.NombreCompleto.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Year.ToString().Contains(ano.ToString()))
+                                if (factura.NombreSocio.ToUpper().Contains(tbSocio.Text.ToUpper()) && factura.Date.Year.ToString().Contains(ano.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -156,9 +156,9 @@ namespace BuenYantar
                         {
                             foreach (Factura factura in facturas)
                             {
-                                if(factura.User.NombreCompleto.ToUpper().Contains(tbSocio.Text.ToUpper()))
+                                if(factura.NombreSocio.ToUpper().Contains(tbSocio.Text.ToUpper()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -186,7 +186,7 @@ namespace BuenYantar
 
                                 if (factura.Date.Year.ToString().Contains(ano.ToString()) && factura.Date.Month.ToString().Contains(mes.ToString()) && factura.Date.Day.ToString().Contains(dia.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -198,7 +198,7 @@ namespace BuenYantar
                             {
                                 if (factura.Date.Month.ToString().Contains(mes.ToString()) && factura.Date.Day.ToString().Contains(dia.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -215,7 +215,7 @@ namespace BuenYantar
                             {
                                 if (factura.Date.Year.ToString().Contains(ano.ToString()) && factura.Date.Day.ToString().Contains(dia.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -227,7 +227,7 @@ namespace BuenYantar
                             {
                                 if (factura.Date.Day.ToString().Contains(dia.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -249,7 +249,7 @@ namespace BuenYantar
                             {
                                 if (factura.Date.Year.ToString().Contains(ano.ToString()) && factura.Date.Month.ToString().Contains(mes.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -261,7 +261,7 @@ namespace BuenYantar
                             {
                                 if (factura.Date.Month.ToString().Contains(mes.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -278,7 +278,7 @@ namespace BuenYantar
                             {
                                 if (factura.Date.Year.ToString().Contains(ano.ToString()))
                                 {
-                                    s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                    s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                     facturasDesorden.Add(s);
                                     facturasMostradas.Add(factura);
                                 }
@@ -288,7 +288,7 @@ namespace BuenYantar
                         {
                             foreach (Factura factura in facturas)
                             {
-                                s = factura.User.NombreCompleto + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
+                                s = factura.NombreSocio + ", " + factura.Date.ToShortDateString() + " (" + factura.precioTotal() + "€)";
                                 facturasDesorden.Add(s);
                                 facturasMostradas.Add(factura);
                             }
@@ -348,6 +348,14 @@ namespace BuenYantar
         private void HistorialFacturasTodas_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(lbFacturas.Items.Count > 0)
+            {
+                rtbFactura.Text = Factura.logMerge(facturasMostradas);
+            }
         }
     }
 }

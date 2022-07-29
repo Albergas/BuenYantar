@@ -39,6 +39,7 @@ namespace BuenYantar
             this.rtbFactura = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbSocio = new System.Windows.Forms.TextBox();
+            this.btInforme = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -128,11 +129,23 @@ namespace BuenYantar
             this.tbSocio.TabIndex = 16;
             this.tbSocio.TextChanged += new System.EventHandler(this.tbSocio_TextChanged);
             // 
+            // btInforme
+            // 
+            this.btInforme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
+            this.btInforme.Location = new System.Drawing.Point(308, 409);
+            this.btInforme.Name = "btInforme";
+            this.btInforme.Size = new System.Drawing.Size(72, 46);
+            this.btInforme.TabIndex = 18;
+            this.btInforme.Text = "Informe de todas";
+            this.btInforme.UseVisualStyleBackColor = false;
+            this.btInforme.Click += new System.EventHandler(this.button1_Click);
+            // 
             // HistorialFacturasTodas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 503);
+            this.Controls.Add(this.btInforme);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbSocio);
             this.Controls.Add(this.label3);
@@ -163,5 +176,6 @@ namespace BuenYantar
         private System.Windows.Forms.RichTextBox rtbFactura;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbSocio;
+        private System.Windows.Forms.Button btInforme;
     }
 }

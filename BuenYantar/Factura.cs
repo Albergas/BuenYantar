@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Collections.ObjectModel;
 
 namespace BuenYantar
 {
@@ -63,6 +64,15 @@ namespace BuenYantar
             this.nombreSocio = user.NombreCompleto;
         }
 
+        public Factura(Usuario user, DateTime fecha, string nombreSocio)
+        {
+            this.contenido = new List<Tuple<Item, int>>();
+            this.user = user;
+            this.date = DateTime.Now;
+            this.date = fecha;
+            this.nombreSocio = nombreSocio;
+        }
+
         public List<Tuple<Item, int>> Contenido
         {
             get
@@ -114,7 +124,7 @@ namespace BuenYantar
         {
             double precItem;
 
-            string s = "=======================================\n\n FACTURA SOCIEDAD BUEN YANTAR\n\nSocio: " + user.NombreCompleto
+            string s = "=======================================\n\n FACTURA SOCIEDAD BUEN YANTAR\n\nSocio: " + nombreSocio
                 + "\n\nFecha: " + date.ToString() + "\n\n---------------------------------------\n\n";
 
             foreach (Tuple<Item, int> item in contenido)
@@ -132,7 +142,7 @@ namespace BuenYantar
         {
             double precItem;
 
-            string s = "=======================================\n\n FACTURA SOCIEDAD BUEN YANTAR\n\nSocio: " + user.NombreCompleto
+            string s = "=======================================\n\n FACTURA SOCIEDAD BUEN YANTAR\n\nSocio: " + nombreSocio
                 + "\n\nFecha: " + date.ToShortDateString() + "\n\n---------------------------------------\n\n";
 
             foreach (Tuple<Item, int> item in contenido)
@@ -148,12 +158,50 @@ namespace BuenYantar
 
         public string logBD()
         {
-            string s = user.Nombre + "|" + date.ToShortDateString() + "|" + cantidadProductos();
+            string s = user.Nombre + "|" + nombreSocio + "|" + date.ToShortDateString() + "|" + cantidadProductos();
 
             foreach(Tuple<Item,int> elemento in contenido)
             {
                 s += "|" + elemento.Item1.Nombre + "|" + elemento.Item1.Precio + "|" + elemento.Item2;
             }
+
+            return s;
+        }
+
+        public static string logMerge(Collection<Factura> facturas)
+        {
+            DateTime bajo;
+            DateTime alto;
+
+            bajo = facturas[0].date;
+            alto = facturas[0].date;
+
+            Factura facturaMerged = new Factura(null, new DateTime(1), "");
+            foreach(Factura f in facturas)
+            {
+                if (DateTime.Compare(bajo, f.date) > 0)
+                    bajo = f.date;
+                if (DateTime.Compare(alto, f.date) < 0)
+                    alto = f.date;
+
+                foreach(Tuple<Item,int> elem in f.contenido)
+                {
+                    facturaMerged.add(elem.Item1, elem.Item2);
+                }
+            }
+
+            double precItem;
+
+            string s = "=======================================\n\n RESUMEN FACTURAS SOCIEDAD BUEN YANTAR\n\n"
+                + "\n\n  Resumen de: " + facturas.Count + " facturas\n\n  Del " + bajo.ToShortDateString() + " al " + alto.ToShortDateString() + "\n\n---------------------------------------\n\n";
+
+            foreach (Tuple<Item, int> item in facturaMerged.contenido)
+            {
+                precItem = item.Item2 * item.Item1.Precio;
+                s += item.Item2 + " " + item.Item1.Nombre + " (" + item.Item2 + " x " + item.Item1.Precio + " = " + precItem + ")\n";
+            }
+
+            s += "\nTOTAL: " + facturaMerged.precioTotal() + "€\n\n=======================================";
 
             return s;
         }

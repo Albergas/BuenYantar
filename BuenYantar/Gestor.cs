@@ -273,15 +273,16 @@ namespace BuenYantar
         {
             string[] datos = s.Split('|');
             Usuario user = construirUsuario(datos[0]);
-            DateTime date = Convert.ToDateTime(datos[1]);
-            int cant = Int32.Parse(datos[2]);
+            string nombreSocio = datos[1];
+            DateTime date = Convert.ToDateTime(datos[2]);
+            int cant = Int32.Parse(datos[3]);
 
-            Factura factura = new Factura(user, date);
+            Factura factura = new Factura(user, date, nombreSocio);
 
             Item item;
             int cantidad;
 
-            int i = 3;
+            int i = 4;
 
             for(int j = 0; j < cant; j++)
             {

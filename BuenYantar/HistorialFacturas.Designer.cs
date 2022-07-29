@@ -37,6 +37,7 @@ namespace BuenYantar
             this.tbMes = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbAno = new System.Windows.Forms.TextBox();
+            this.btInforme = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rtbFactura
@@ -109,11 +110,23 @@ namespace BuenYantar
             this.tbAno.TabIndex = 6;
             this.tbAno.TextChanged += new System.EventHandler(this.tbAno_TextChanged);
             // 
+            // btInforme
+            // 
+            this.btInforme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
+            this.btInforme.Location = new System.Drawing.Point(202, 436);
+            this.btInforme.Name = "btInforme";
+            this.btInforme.Size = new System.Drawing.Size(72, 46);
+            this.btInforme.TabIndex = 19;
+            this.btInforme.Text = "Informe de todas";
+            this.btInforme.UseVisualStyleBackColor = false;
+            this.btInforme.Click += new System.EventHandler(this.btInforme_Click);
+            // 
             // HistorialFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 489);
+            this.ClientSize = new System.Drawing.Size(753, 494);
+            this.Controls.Add(this.btInforme);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbAno);
             this.Controls.Add(this.label2);
@@ -140,5 +153,6 @@ namespace BuenYantar
         private System.Windows.Forms.TextBox tbMes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbAno;
+        private System.Windows.Forms.Button btInforme;
     }
 }

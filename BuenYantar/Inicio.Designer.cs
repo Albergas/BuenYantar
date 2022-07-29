@@ -120,7 +120,7 @@ namespace BuenYantar
             this.btConfiguracion.Name = "btConfiguracion";
             this.btConfiguracion.Size = new System.Drawing.Size(75, 66);
             this.btConfiguracion.TabIndex = 7;
-            this.btConfiguracion.Text = "Config";
+            this.btConfiguracion.Text = "Config de usuario";
             this.btConfiguracion.UseVisualStyleBackColor = false;
             this.btConfiguracion.Click += new System.EventHandler(this.btConfiguracion_Click);
             // 

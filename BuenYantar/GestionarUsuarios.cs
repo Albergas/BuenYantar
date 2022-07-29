@@ -29,10 +29,19 @@ namespace BuenYantar
             cbPermisos.Enabled = false;
 
             actualizarLista();
+
+            if(user.Tipo != 0)
+            {
+                btNuevo.Visible = false;
+                btNuevo.Enabled = false;
+                btEliminar.Visible = false;
+                btEliminar.Enabled = false;
+            }
         }
 
         private void actualizarLista()
         {
+            this.actualizarDatos();
             lbUsuarios.Items.Clear();
 
             foreach(Usuario usuario in gestor.usuarios())
@@ -81,6 +90,20 @@ namespace BuenYantar
             DialogResult d = nU.ShowDialog();
 
             actualizarLista();
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e)
+        {
+            if(lbUsuarios.SelectedItem != null)
+            {
+                DialogResult result = MessageBox.Show("¿Seguro que quiere borrar el usuario " + tbNombreCompleto.Text + "?","Confirmar eliminación", MessageBoxButtons.YesNo);
+                if(result == DialogResult.Yes)
+                {
+                    gestor.removeUser(tbNombre.Text);
+                    MessageBox.Show("Se eliminó el usuario " + tbNombreCompleto.Text);
+                    this.actualizarLista();
+                }
+            }
         }
     }
 }

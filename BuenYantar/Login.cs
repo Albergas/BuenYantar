@@ -48,6 +48,8 @@ namespace BuenYantar
                 }
                 else
                 {
+                    tbUsuario.Text = "";
+                    tbPassword.Text = "";
                     this.Visible = true;
                 }
             }
