@@ -42,6 +42,11 @@ namespace BuenYantar
             {
                 return this.codigo;
             }
+
+            set
+            {
+                this.codigo = value;
+            }
         }
 
         public int Cantidad

@@ -48,6 +48,8 @@ namespace BuenYantar
             this.btNuevo = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
             this.btGuardarNuevo = new System.Windows.Forms.Button();
+            this.tbCodigo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbInventario
@@ -148,7 +150,7 @@ namespace BuenYantar
             this.lbAvisoReponer.AutoSize = true;
             this.lbAvisoReponer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAvisoReponer.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbAvisoReponer.Location = new System.Drawing.Point(305, 195);
+            this.lbAvisoReponer.Location = new System.Drawing.Point(305, 245);
             this.lbAvisoReponer.Name = "lbAvisoReponer";
             this.lbAvisoReponer.Size = new System.Drawing.Size(217, 13);
             this.lbAvisoReponer.TabIndex = 12;
@@ -179,7 +181,7 @@ namespace BuenYantar
             // btModificar
             // 
             this.btModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btModificar.Location = new System.Drawing.Point(348, 235);
+            this.btModificar.Location = new System.Drawing.Point(348, 285);
             this.btModificar.Name = "btModificar";
             this.btModificar.Size = new System.Drawing.Size(75, 43);
             this.btModificar.TabIndex = 15;
@@ -190,7 +192,7 @@ namespace BuenYantar
             // btGuardar
             // 
             this.btGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btGuardar.Location = new System.Drawing.Point(447, 235);
+            this.btGuardar.Location = new System.Drawing.Point(447, 285);
             this.btGuardar.Name = "btGuardar";
             this.btGuardar.Size = new System.Drawing.Size(75, 43);
             this.btGuardar.TabIndex = 16;
@@ -201,7 +203,7 @@ namespace BuenYantar
             // btNuevo
             // 
             this.btNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.btNuevo.Location = new System.Drawing.Point(348, 284);
+            this.btNuevo.Location = new System.Drawing.Point(348, 334);
             this.btNuevo.Name = "btNuevo";
             this.btNuevo.Size = new System.Drawing.Size(75, 43);
             this.btNuevo.TabIndex = 17;
@@ -212,7 +214,7 @@ namespace BuenYantar
             // btEliminar
             // 
             this.btEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btEliminar.Location = new System.Drawing.Point(348, 337);
+            this.btEliminar.Location = new System.Drawing.Point(348, 387);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(75, 43);
             this.btEliminar.TabIndex = 18;
@@ -223,7 +225,7 @@ namespace BuenYantar
             // btGuardarNuevo
             // 
             this.btGuardarNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGuardarNuevo.Location = new System.Drawing.Point(447, 284);
+            this.btGuardarNuevo.Location = new System.Drawing.Point(447, 334);
             this.btGuardarNuevo.Name = "btGuardarNuevo";
             this.btGuardarNuevo.Size = new System.Drawing.Size(75, 43);
             this.btGuardarNuevo.TabIndex = 23;
@@ -231,11 +233,30 @@ namespace BuenYantar
             this.btGuardarNuevo.UseVisualStyleBackColor = false;
             this.btGuardarNuevo.Click += new System.EventHandler(this.btGuardarNuevo_Click);
             // 
+            // tbCodigo
+            // 
+            this.tbCodigo.Location = new System.Drawing.Point(348, 189);
+            this.tbCodigo.Name = "tbCodigo";
+            this.tbCodigo.Size = new System.Drawing.Size(174, 20);
+            this.tbCodigo.TabIndex = 25;
+            this.tbCodigo.TextChanged += new System.EventHandler(this.tbCodigo_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(295, 192);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Código:";
+            // 
             // VerInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 470);
+            this.Controls.Add(this.tbCodigo);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btGuardarNuevo);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btNuevo);
@@ -284,5 +305,7 @@ namespace BuenYantar
         private System.Windows.Forms.Button btNuevo;
         private System.Windows.Forms.Button btEliminar;
         private System.Windows.Forms.Button btGuardarNuevo;
+        private System.Windows.Forms.TextBox tbCodigo;
+        private System.Windows.Forms.Label label5;
     }
 }

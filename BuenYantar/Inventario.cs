@@ -75,5 +75,44 @@ namespace BuenYantar
             gestor.modifyItem(item);
             this.inventario = gestor.items();
         }
+
+        public Collection<Item> ordenado()
+        {
+            Collection<Item> ordenados = new Collection<Item>();
+            bool primero = true;
+            bool metido = false;
+            int cantidadActual;
+
+            foreach(Item item in inventario)
+            {
+                if (primero)
+                {
+                    ordenados.Add(item);
+                    primero = false;
+                }
+                else
+                {
+                    metido = false;
+                    cantidadActual = ordenados.Count;
+                    Console.WriteLine("Hay que introducir el item: " + item.Nombre);
+                    for (int i = 0; i < cantidadActual && !metido; i++)
+                    {
+                        if (ordenados[i].Codigo > item.Codigo)
+                        {
+                            Console.WriteLine("Introducido en posicion: " + i);
+                            ordenados.Insert(i, item);
+                            metido = true;
+                        }
+                    }
+                    if (!metido)
+                    {
+                        Console.WriteLine("Introducido en ultima posicion");
+                        ordenados.Add(item);
+                    }
+                }
+            }
+
+            return ordenados;
+        }
     }
 }

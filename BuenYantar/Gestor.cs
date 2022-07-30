@@ -64,13 +64,14 @@ namespace BuenYantar
             int cantidad = Int32.Parse(datos[1]);
             double precio = double.Parse(datos[2]);
             int seguridad = Int32.Parse(datos[3]);
+            int codigo = Int32.Parse(datos[4]);
 
-            return new Item(datos[0], cantidad, precio, seguridad);
+            return new Item(datos[0], cantidad, precio, seguridad, codigo);
         }
 
         public string ItemToString(Item item)
         {
-            string s = item.Nombre + "|" + item.Cantidad + "|" + item.Precio + "|" + item.Seguridad;
+            string s = item.Nombre + "|" + item.Cantidad + "|" + item.Precio + "|" + item.Seguridad + "|" + item.Codigo;
             return s;
         }
 
@@ -325,7 +326,7 @@ namespace BuenYantar
 
             for(int j = 0; j < cant; j++)
             {
-                item = new Item(datos[i], 1000, double.Parse(datos[i+1]), 10);
+                item = new Item(datos[i], 1000, double.Parse(datos[i+1]), 10, 1);
                 cantidad = Int32.Parse(datos[i+2]);
                 factura.add(item, cantidad);
                 i += 3;
@@ -423,6 +424,29 @@ namespace BuenYantar
             }
 
             return facturas;
+        }
+
+        public void imprimirTexto(string s)
+        {
+            string clave = Passwords.MD5(s);
+
+            //if(!File.Exists(rutaCarpetaFacturasBase + clave + ".txt"))
+            //{
+                StreamWriter swFactura = File.CreateText(rutaCarpetaFacturasBase + clave + ".txt");
+                swFactura.WriteLine(s);
+                swFactura.Close();
+            //}
+            
+            string file = rutaCarpetaFacturasBase + clave + ".txt";
+            reader = new StreamReader(file);
+
+            PrintDocument pd = new PrintDocument();
+            pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
+
+            pd.Print();
+
+            if (reader != null)
+                reader.Close();
         }
 
         public void imprimirFactura(Factura factura)

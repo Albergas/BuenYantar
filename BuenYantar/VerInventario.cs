@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -14,6 +15,7 @@ namespace BuenYantar
     {
 
         private Inventario inventario;
+        private Collection<Item> inventarioOrdenado;
         private Item seleccionado;
         private Usuario user;
 
@@ -21,13 +23,11 @@ namespace BuenYantar
         {
             InitializeComponent();
             this.inventario = inventario;
+            this.inventarioOrdenado = this.inventario.ordenado();
             this.user = user;
             this.seleccionado = null;
 
-            foreach(Item item in this.inventario.Items)
-            {
-                this.lbInventario.Items.Add(item.Nombre);
-            }
+            this.actualizarLista();
 
             this.btGuardar.Visible = false;
             this.btGuardarNuevo.Visible = false;
@@ -72,6 +72,7 @@ namespace BuenYantar
             this.tbPrecio.ReadOnly = true;
             this.tbStock.ReadOnly = true;
             this.tbStockSeguridad.ReadOnly = true;
+            this.tbCodigo.ReadOnly = true;
 
             this.lbAvisoReponer.Visible = false;
 
@@ -84,6 +85,7 @@ namespace BuenYantar
                 this.tbStock.Text = "";
                 this.tbStockSeguridad.Text = "";
                 this.tbPrecio.Text = "";
+                this.tbCodigo.Text = "";
             }
             else
             {
@@ -91,6 +93,7 @@ namespace BuenYantar
                 this.tbStock.Text = seleccionado.Cantidad.ToString();
                 this.tbStockSeguridad.Text = seleccionado.Seguridad.ToString();
                 this.tbPrecio.Text = seleccionado.Precio.ToString();
+                this.tbCodigo.Text = seleccionado.Codigo.ToString();
 
                 if (seleccionado.Cantidad < seleccionado.Seguridad)
                     this.lbAvisoReponer.Visible = true;
@@ -103,7 +106,7 @@ namespace BuenYantar
 
             if (this.tbFiltrar.Text.Trim() != "")
             {
-                foreach (Item item in this.inventario.Items)
+                foreach (Item item in this.inventarioOrdenado)
                 {
                     if(item.Nombre.Contains(this.tbFiltrar.Text))
                         this.lbInventario.Items.Add(item.Nombre);
@@ -111,7 +114,7 @@ namespace BuenYantar
             }
             else
             {
-                foreach (Item item in this.inventario.Items)
+                foreach (Item item in this.inventarioOrdenado)
                 {
                     this.lbInventario.Items.Add(item.Nombre);
                 }
@@ -152,13 +155,14 @@ namespace BuenYantar
             this.tbPrecio.ReadOnly = false;
             this.tbStock.ReadOnly = false;
             this.tbStockSeguridad.ReadOnly = false;
+            this.tbCodigo.ReadOnly = false;
 
             this.btGuardar.Visible = true;
         }
 
         private void btGuardar_Click(object sender, EventArgs e)
         {
-            int cantidad, seguridad;
+            int cantidad, seguridad, codigo;
             double precio;
             arreglarPrecio();
             if (Int32.TryParse(tbStock.Text, out cantidad))
@@ -169,21 +173,28 @@ namespace BuenYantar
                     {
                         if (!tbNombre.Text.Contains('|'))
                         {
-                            seleccionado.Nombre = tbNombre.Text;
-                            seleccionado.Cantidad = cantidad;
-                            seleccionado.Seguridad = seguridad;
-                            seleccionado.Precio = precio;
+                            if (Int32.TryParse(tbCodigo.Text, out codigo))
+                            {
+                                seleccionado.Nombre = tbNombre.Text;
+                                seleccionado.Cantidad = cantidad;
+                                seleccionado.Seguridad = seguridad;
+                                seleccionado.Precio = precio;
+                                seleccionado.Codigo = codigo;
 
-                            MessageBox.Show("Cambios guardados");
+                                MessageBox.Show("Cambios guardados");
 
-                            inventario.modifyItem(seleccionado);
+                                inventario.modifyItem(seleccionado);
 
-                            this.tbNombre.ReadOnly = true;
-                            this.tbStock.ReadOnly = true;
-                            this.tbStockSeguridad.ReadOnly = true;
-                            this.tbPrecio.ReadOnly = true;
+                                this.tbNombre.ReadOnly = true;
+                                this.tbStock.ReadOnly = true;
+                                this.tbStockSeguridad.ReadOnly = true;
+                                this.tbPrecio.ReadOnly = true;
+                                this.tbCodigo.ReadOnly = true;
 
-                            this.btGuardar.Visible = false;
+                                this.btGuardar.Visible = false;
+                            }
+                            else
+                                MessageBox.Show("Error: código no válido");
                         }
                         else
                             MessageBox.Show("Error: el nombre del producto no puede contener '|'");
@@ -243,11 +254,13 @@ namespace BuenYantar
             this.tbStock.ReadOnly = false;
             this.tbStockSeguridad.ReadOnly = false;
             this.tbPrecio.ReadOnly = false;
+            this.tbCodigo.ReadOnly = false;
 
             this.tbNombre.Text = "";
             this.tbStock.Text = "";
             this.tbStockSeguridad.Text = "";
             this.tbPrecio.Text = "";
+            this.tbCodigo.Text = "";
 
             this.btGuardarNuevo.Visible = true;
         }
@@ -255,7 +268,7 @@ namespace BuenYantar
         private void btGuardarNuevo_Click(object sender, EventArgs e)
         {
 
-            int cantidad, seguridad;
+            int cantidad, seguridad, codigo;
             double precio;
             arreglarPrecio();
 
@@ -267,23 +280,30 @@ namespace BuenYantar
                     {
                         if (!tbNombre.Text.Contains('|'))
                         {
+                            if(Int32.TryParse(tbCodigo.Text, out codigo))
+                            {
+                                Item nuevoItem = new Item(tbNombre.Text, cantidad, precio, seguridad, codigo);
 
-                            Item nuevoItem = new Item(tbNombre.Text, cantidad, precio, seguridad);
+                                MessageBox.Show("Nuevo producto guardados");
 
-                            MessageBox.Show("Nuevo producto guardados");
+                                inventario.addItem(nuevoItem);
+                                inventario.getGestor().LogCrear(user, nuevoItem, null, null);
 
-                            inventario.addItem(nuevoItem);
-                            inventario.getGestor().LogCrear(user, nuevoItem, null, null);
+                                this.tbNombre.ReadOnly = true;
+                                this.tbStock.ReadOnly = true;
+                                this.tbStockSeguridad.ReadOnly = true;
+                                this.tbPrecio.ReadOnly = true;
+                                this.tbCodigo.ReadOnly = true;
 
-                            this.tbNombre.ReadOnly = true;
-                            this.tbStock.ReadOnly = true;
-                            this.tbStockSeguridad.ReadOnly = true;
-                            this.tbPrecio.ReadOnly = true;
+                                this.btGuardar.Visible = false;
+                                this.btGuardarNuevo.Visible = false;
 
-                            this.btGuardar.Visible = false;
-                            this.btGuardarNuevo.Visible = false;
-
-                            this.actualizarLista();
+                                this.actualizarLista();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error: codigo no válido");
+                            }
                         }
                         else
                             MessageBox.Show("Error: el nombre del producto no puede contener '|'");
@@ -309,7 +329,7 @@ namespace BuenYantar
                 DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar del registro el producto '" + aBorrar + "'?", "Confirmar eliminación", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
-                    inventario.getGestor().LogEliminar(user, new Item(aBorrar,0,0,0), null, null);
+                    inventario.getGestor().LogEliminar(user, new Item(aBorrar,0,0,0,0), null, null);
                     this.inventario.removeItem(aBorrar);
                     this.actualizarLista();
                     MessageBox.Show("Se eliminó del registro el producto " + aBorrar);
@@ -348,6 +368,13 @@ namespace BuenYantar
         private void arreglarPrecio()
         {
             tbPrecio.Text = tbPrecio.Text.Replace(".", ",");
+        }
+
+        private void tbCodigo_TextChanged(object sender, EventArgs e)
+        {
+            int n;
+            if (!Int32.TryParse(tbCodigo.Text, out n))
+                tbCodigo.Text = "";
         }
     }
 }
