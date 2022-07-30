@@ -40,6 +40,8 @@ namespace BuenYantar
             this.label5 = new System.Windows.Forms.Label();
             this.tbSocio = new System.Windows.Forms.TextBox();
             this.btInforme = new System.Windows.Forms.Button();
+            this.btEliminar = new System.Windows.Forms.Button();
+            this.btConcatenar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -108,7 +110,7 @@ namespace BuenYantar
             this.rtbFactura.Location = new System.Drawing.Point(422, 12);
             this.rtbFactura.Name = "rtbFactura";
             this.rtbFactura.ReadOnly = true;
-            this.rtbFactura.Size = new System.Drawing.Size(429, 459);
+            this.rtbFactura.Size = new System.Drawing.Size(429, 519);
             this.rtbFactura.TabIndex = 8;
             this.rtbFactura.Text = "";
             // 
@@ -140,11 +142,35 @@ namespace BuenYantar
             this.btInforme.UseVisualStyleBackColor = false;
             this.btInforme.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btEliminar
+            // 
+            this.btEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(222)))));
+            this.btEliminar.Location = new System.Drawing.Point(27, 473);
+            this.btEliminar.Name = "btEliminar";
+            this.btEliminar.Size = new System.Drawing.Size(72, 46);
+            this.btEliminar.TabIndex = 19;
+            this.btEliminar.Text = "Eliminar selección";
+            this.btEliminar.UseVisualStyleBackColor = false;
+            this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
+            // 
+            // btConcatenar
+            // 
+            this.btConcatenar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btConcatenar.Location = new System.Drawing.Point(308, 473);
+            this.btConcatenar.Name = "btConcatenar";
+            this.btConcatenar.Size = new System.Drawing.Size(72, 46);
+            this.btConcatenar.TabIndex = 20;
+            this.btConcatenar.Text = "Informe una a una";
+            this.btConcatenar.UseVisualStyleBackColor = false;
+            this.btConcatenar.Click += new System.EventHandler(this.btConcatenar_Click);
+            // 
             // HistorialFacturasTodas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 503);
+            this.ClientSize = new System.Drawing.Size(863, 543);
+            this.Controls.Add(this.btConcatenar);
+            this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btInforme);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbSocio);
@@ -177,5 +203,7 @@ namespace BuenYantar
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbSocio;
         private System.Windows.Forms.Button btInforme;
+        private System.Windows.Forms.Button btEliminar;
+        private System.Windows.Forms.Button btConcatenar;
     }
 }

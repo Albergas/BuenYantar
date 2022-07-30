@@ -159,7 +159,8 @@ namespace BuenYantar
             {
                 gestor.addFactura(factura);
                 gestor.procesarFactura(factura);
-                MessageBox.Show("La factura se guardó correctamente. El stock se ha actualizado");
+                MessageBox.Show("La factura se guardó correctamente. El stock se ha actualizado. Se va a imprimir la factura.");
+                gestor.imprimirFactura(factura);
                 this.Dispose();
             }
         }

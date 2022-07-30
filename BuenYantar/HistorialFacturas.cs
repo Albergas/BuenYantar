@@ -229,5 +229,17 @@ namespace BuenYantar
                 rtbFactura.Text = Factura.logMerge(facturasMostradas);
             }
         }
+
+        private void btConcatenar_Click(object sender, EventArgs e)
+        {
+            if (facturasMostradas.Count > 0)
+            {
+                rtbFactura.Text = Factura.logUnaAUna(facturasMostradas);
+            }
+            else
+            {
+                rtbFactura.Text = "";
+            }
+        }
     }
 }

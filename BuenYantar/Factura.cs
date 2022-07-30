@@ -120,6 +120,18 @@ namespace BuenYantar
             return true;
         }
 
+        public bool contiene(Tuple<Item,int> tupla)
+        {
+            foreach(Tuple<Item,int> elem in contenido)
+            {
+                if(elem.Item1.Nombre.Equals(tupla.Item1.Nombre) && elem.Item1.Precio == tupla.Item1.Precio && elem.Item2 == tupla.Item2)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public string log()
         {
             double precItem;
@@ -158,9 +170,13 @@ namespace BuenYantar
 
         public string logBD()
         {
-            string s = user.Nombre + "|" + nombreSocio + "|" + date.ToShortDateString() + "|" + cantidadProductos();
+            string s = "";
+            if (user != null)
+                s += user.Nombre + "|" + nombreSocio + "|" + date.ToShortDateString() + "|" + cantidadProductos();
+            else
+                s += "null|" + nombreSocio + "|" + date.ToShortDateString() + "|" + cantidadProductos();
 
-            foreach(Tuple<Item,int> elemento in contenido)
+            foreach (Tuple<Item,int> elemento in contenido)
             {
                 s += "|" + elemento.Item1.Nombre + "|" + elemento.Item1.Precio + "|" + elemento.Item2;
             }
@@ -203,6 +219,50 @@ namespace BuenYantar
 
             s += "\nTOTAL: " + facturaMerged.precioTotal() + "€\n\n=======================================";
 
+            return s;
+        }
+
+        public static string logUnaAUna(Collection<Factura> facturas)
+        {
+            string s = "";
+            foreach(Factura factura in facturas)
+            {
+                s += factura.logSinHora() + "\n";
+            }
+            return s;
+        }
+
+        public static bool IgualesSinUser(Factura f1, Factura f2)
+        {
+            bool contenidoIgual = true;
+            foreach(Tuple<Item,int> tupla in f1.contenido)
+            {
+                if (!f2.contiene(tupla))
+                    contenidoIgual = false;
+            }
+            Console.WriteLine(contenidoIgual);
+            Console.WriteLine(f1.nombreSocio.Equals(f2.nombreSocio));
+            Console.WriteLine(f1.date.Equals(f2.date));
+            return (contenidoIgual && f1.nombreSocio.Equals(f2.nombreSocio) && f1.date.Equals(f2.date));
+        }
+
+        public string itemsCantidadesSeguidos()
+        {
+            string s = "";
+            foreach(Tuple<Item,int> tupla in contenido)
+            {
+                s += tupla.Item1.Nombre + tupla.Item1.Precio + tupla.Item2;
+            }
+            return s.Replace(" ", "");
+        }
+
+        public string nombreTxt()
+        {
+            string s = (nombreSocio + date.ToShortDateString().Replace(@"/", "-") + itemsCantidadesSeguidos()).Replace(" ", "");
+            if(s.Length > 210)
+            {
+                s = s.Substring(0, 200);
+            }
             return s;
         }
     }

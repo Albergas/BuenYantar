@@ -5,18 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Drawing.Printing;
+using System.Drawing;
 
 namespace BuenYantar
 {
     public class Gestor
     {
+        private string rutaBase;
         private string rutaInventario;
         private string rutaInventarioCopiaSeguridad;
         private string rutaUsuarios;
         private string rutaUsuariosCopiaSeguridad;
         private string rutaFacturas;
         private string rutaFacturasCopiaSeguridad;
+        private string rutaLog;
+        private string rutaCarpetaFacturasBase;
 
+        private Font lucidaConsole8Font;
+        private StreamReader reader;
 
         public Gestor()
         {
@@ -30,13 +37,21 @@ namespace BuenYantar
             this.rutaFacturasCopiaSeguridad = @"C:\Users\aleja\OneDrive\Escritorio\BuenYantarBD\backup\buenyantarfacturasbackup.txt";
             */
 
-            this.rutaInventario = @"C:\BuenYantarBD\buenyantarinventario.txt";
-            this.rutaUsuarios = @"C:\BuenYantarBD\buenyantarusuarios.txt";
-            this.rutaFacturas = @"C:\BuenYantarBD\buenyantarfacturas.txt";
+            lucidaConsole8Font = new Font("Lucida Console", 8);
 
-            this.rutaInventarioCopiaSeguridad = @"C:\BuenYantarBD\backup\buenyantarinventariobackup.txt";
-            this.rutaUsuariosCopiaSeguridad = @"C:\BuenYantarBD\backup\buenyantarusuariosbackup.txt";
-            this.rutaFacturasCopiaSeguridad = @"C:\BuenYantarBD\backup\buenyantarfacturasbackup.txt";
+            this.rutaBase = @"C:\BuenYantarBD\";
+
+            this.rutaInventario = rutaBase + @"buenyantarinventario.txt";
+            this.rutaUsuarios = rutaBase + @"buenyantarusuarios.txt";
+            this.rutaFacturas = rutaBase + @"buenyantarfacturas.txt";
+
+            this.rutaInventarioCopiaSeguridad = rutaBase + @"backup\buenyantarinventariobackup.txt";
+            this.rutaUsuariosCopiaSeguridad = rutaBase + @"backup\buenyantarusuariosbackup.txt";
+            this.rutaFacturasCopiaSeguridad = rutaBase + @"backup\buenyantarfacturasbackup.txt";
+
+            this.rutaLog = rutaBase + @"backup\log.txt";
+
+            this.rutaCarpetaFacturasBase = rutaBase + @"facturas\";
         }
 
         // ====================================================================================
@@ -154,6 +169,9 @@ namespace BuenYantar
         public Usuario construirUsuario(string nombre)
         {
             Usuario user;
+            if (nombre.Equals("null"))
+                return null;
+
             foreach (string line in System.IO.File.ReadLines(rutaUsuarios))
             {
                 user = StringToUsuario(line);
@@ -327,6 +345,53 @@ namespace BuenYantar
             StreamWriter swBackup = File.AppendText(rutaFacturasCopiaSeguridad);
             swBackup.WriteLine(nuevo);
             swBackup.Close();
+
+            StreamWriter swFactura = File.CreateText(rutaCarpetaFacturasBase + factura.nombreTxt() + ".txt");
+            swFactura.WriteLine(factura.log());
+            swFactura.Close();
+        }
+
+        public void removeFactura(Factura factura)
+        {
+            string[] lineas = new string[1000];
+            int i = 0;
+            int j = 0;
+
+            foreach (string line in System.IO.File.ReadLines(rutaFacturas))
+            {
+                lineas[i] = line;
+                i++;
+            }
+
+            StreamWriter sw = new StreamWriter(rutaFacturas);
+            Factura f1;
+            bool eliminado = false;
+
+            while (j <= i)
+            {
+                if (lineas[j] != "" && lineas[j] != null)
+                {
+                    f1 = StringToFactura(lineas[j]);
+                    if (!Factura.IgualesSinUser(f1, factura))
+                    {
+                        sw.WriteLine(lineas[j]);
+                    }
+                    else
+                    {
+                        if (eliminado)
+                        {
+                            sw.WriteLine(lineas[j]);
+                        }
+                        else
+                        {
+                            eliminado = true;
+                        }
+                    }
+                }
+                j++;
+            }
+
+            sw.Close();
         }
 
         public void procesarFactura(Factura factura)
@@ -359,5 +424,90 @@ namespace BuenYantar
 
             return facturas;
         }
+
+        public void imprimirFactura(Factura factura)
+        {
+            string file = rutaCarpetaFacturasBase + factura.nombreTxt() + ".txt";
+            reader = new StreamReader(file);
+
+
+            PrintDocument pd = new PrintDocument();
+            pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
+
+            pd.Print();
+
+            if (reader != null)
+                reader.Close();
+        }
+
+        private void PrintTextFileHandler(object sender, PrintPageEventArgs ppeArgs)
+        {
+            Graphics g = ppeArgs.Graphics;
+            float linesPerPage = 0;
+            float yPos = 0;
+            int count = 0;
+
+            float leftMargin = 8;// ppeArgs.MarginBounds.Left;
+            float topMargin = 8;// ppeArgs.MarginBounds.Top;
+            string line = null;
+
+            //Calculate the lines per page on the basis of the height of the page and the height of the font  
+            linesPerPage = ppeArgs.MarginBounds.Height / lucidaConsole8Font.GetHeight(g);
+
+            //Now read lines one by one, using StreamReader  
+            while (count < linesPerPage && ((line = reader.ReadLine()) != null))
+            {
+                //Calculate the starting position  
+                yPos = topMargin + (count * lucidaConsole8Font.GetHeight(g));
+                //Draw text  
+                g.DrawString(line, lucidaConsole8Font, Brushes.Black, leftMargin, yPos, new StringFormat());
+                //Move to next line  
+                count++;
+            }
+            //If PrintPageEventArgs has more pages to print  
+            if (line != null)
+            {
+                ppeArgs.HasMorePages = true;
+            }
+            else
+            {
+                ppeArgs.HasMorePages = false;
+            }
+        }
+
+        public string GetDefaultPrinter()
+        {
+            PrinterSettings settings = new PrinterSettings();
+            foreach (string printer in PrinterSettings.InstalledPrinters)
+            {
+                settings.PrinterName = printer;
+                if (settings.IsDefaultPrinter)
+                    return printer;
+            }
+            return string.Empty;
+        }
+
+        // ==============================================================
+        // LOGS
+
+        /*
+        public void LOG(Usuario user, Item item, Factura factura, Usuario user2)
+        {
+            string log = "";
+
+            if(user2 == null)
+            {
+                
+            }
+            else
+            {
+                
+            }
+
+            StreamWriter swLog = File.AppendText(rutaLog);
+            swLog.WriteLine(log);
+            swLog.Close();
+        }
+        */
     }
 }

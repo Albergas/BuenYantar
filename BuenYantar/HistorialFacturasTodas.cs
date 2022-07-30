@@ -25,6 +25,8 @@ namespace BuenYantar
             this.facturas = gestor.facturas();
             this.facturasMostradas = new Collection<Factura>();
 
+            btEliminar.Visible = false;
+
             actualizarLista();
         }
 
@@ -311,9 +313,15 @@ namespace BuenYantar
         private void lbFacturas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbFacturas.SelectedItem != null)
+            {
                 rtbFactura.Text = facturasMostradas[lbFacturas.Items.Count - lbFacturas.SelectedIndex - 1].logSinHora();
+                btEliminar.Visible = true;
+            }
             else
+            {
                 rtbFactura.Text = "";
+                btEliminar.Visible = false;
+            }
         }
 
         private void tbDia_TextChanged(object sender, EventArgs e)
@@ -355,6 +363,31 @@ namespace BuenYantar
             if(lbFacturas.Items.Count > 0)
             {
                 rtbFactura.Text = Factura.logMerge(facturasMostradas);
+            }
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult d = MessageBox.Show("¿Seguro que desea eliminar la factura seleccionada?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+            if(d == DialogResult.Yes)
+            {
+                MessageBox.Show("Se eliminó la siguiente factura:\n" + facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1].logSinHora());
+                gestor.removeFactura(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
+                facturas.Remove(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
+                facturasMostradas.Remove(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
+            }
+            actualizarLista();
+        }
+
+        private void btConcatenar_Click(object sender, EventArgs e)
+        {
+            if(facturasMostradas.Count > 0)
+            {
+                rtbFactura.Text = Factura.logUnaAUna(facturasMostradas);
+            }
+            else
+            {
+                rtbFactura.Text = "";
             }
         }
     }
