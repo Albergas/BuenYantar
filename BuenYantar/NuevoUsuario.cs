@@ -14,11 +14,13 @@ namespace BuenYantar
     {
 
         private Gestor gestor;
+        private Usuario user1;
         private bool secretPassword;
 
-        public NuevoUsuario(Gestor gestor)
+        public NuevoUsuario(Gestor gestor, Usuario user1)
         {
             this.gestor = gestor;
+            this.user1 = user1;
             InitializeComponent();
             this.tbPassword.PasswordChar = '•';
             this.secretPassword = true;
@@ -71,6 +73,7 @@ namespace BuenYantar
                         Usuario user = new Usuario(tbNombre.Text, hash, n, tbNombreCompleto.Text);
 
                         gestor.addUser(user);
+                        gestor.LogCrear(user1, null, null, user);
                         MessageBox.Show("Usuario añadido correctamente");
                         this.DialogResult = DialogResult.OK;
                         this.Dispose();

@@ -273,6 +273,7 @@ namespace BuenYantar
                             MessageBox.Show("Nuevo producto guardados");
 
                             inventario.addItem(nuevoItem);
+                            inventario.getGestor().LogCrear(user, nuevoItem, null, null);
 
                             this.tbNombre.ReadOnly = true;
                             this.tbStock.ReadOnly = true;
@@ -308,6 +309,7 @@ namespace BuenYantar
                 DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar del registro el producto '" + aBorrar + "'?", "Confirmar eliminación", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
+                    inventario.getGestor().LogEliminar(user, new Item(aBorrar,0,0,0), null, null);
                     this.inventario.removeItem(aBorrar);
                     this.actualizarLista();
                     MessageBox.Show("Se eliminó del registro el producto " + aBorrar);

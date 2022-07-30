@@ -14,12 +14,14 @@ namespace BuenYantar
     public partial class HistorialFacturasTodas : Form
     {
         private Gestor gestor;
+        private Usuario user;
         private Collection<Factura> facturas;
         private Collection<Factura> facturasMostradas;
 
-        public HistorialFacturasTodas(Gestor gestor)
+        public HistorialFacturasTodas(Gestor gestor, Usuario user)
         {
             this.gestor = gestor;
+            this.user = user;
             InitializeComponent();
 
             this.facturas = gestor.facturas();
@@ -372,6 +374,7 @@ namespace BuenYantar
             if(d == DialogResult.Yes)
             {
                 MessageBox.Show("Se eliminó la siguiente factura:\n" + facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1].logSinHora());
+                gestor.LogEliminar(user, null, facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1], null);
                 gestor.removeFactura(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
                 facturas.Remove(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
                 facturasMostradas.Remove(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);

@@ -46,6 +46,11 @@ namespace BuenYantar
             return false;
         }
 
+        public Gestor getGestor()
+        {
+            return gestor;
+        }
+
         public bool addItem(Item item)
         {
             if (!existe(item.Nombre))

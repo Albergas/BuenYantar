@@ -86,7 +86,7 @@ namespace BuenYantar
 
         private void btNuevo_Click(object sender, EventArgs e)
         {
-            NuevoUsuario nU = new NuevoUsuario(gestor);
+            NuevoUsuario nU = new NuevoUsuario(gestor, user);
             DialogResult d = nU.ShowDialog();
 
             actualizarLista();
@@ -100,6 +100,7 @@ namespace BuenYantar
                 if(result == DialogResult.Yes)
                 {
                     gestor.removeUser(tbNombre.Text);
+                    gestor.LogEliminar(user, null, null, new Usuario(tbNombre.Text, "", 1, tbNombreCompleto.Text));
                     MessageBox.Show("Se eliminó el usuario " + tbNombreCompleto.Text);
                     this.actualizarLista();
                 }

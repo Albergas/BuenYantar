@@ -489,25 +489,60 @@ namespace BuenYantar
 
         // ==============================================================
         // LOGS
-
-        /*
-        public void LOG(Usuario user, Item item, Factura factura, Usuario user2)
+        public void LogCrear(Usuario user, Item item, Factura factura, Usuario user2)
         {
             string log = "";
 
             if(user2 == null)
             {
-                
+                if(item == null)
+                {
+                    if(factura != null)
+                    {
+                        log = user.Nombre + " ha creado la factura: " + factura.logBD();
+                    }
+                }
+                else
+                {
+                    log = user.Nombre + " ha creado el item: " + ItemToString(item);
+                }
             }
             else
             {
-                
+                log = user.Nombre + " ha creado el usuario: " + UsuarioToString(user2);
             }
 
             StreamWriter swLog = File.AppendText(rutaLog);
             swLog.WriteLine(log);
             swLog.Close();
         }
-        */
+
+        public void LogEliminar(Usuario user, Item item, Factura factura, Usuario user2)
+        {
+            string log = "";
+
+            if (user2 == null)
+            {
+                if (item == null)
+                {
+                    if (factura != null)
+                    {
+                        log = user.Nombre + " ha eliminado la factura: " + factura.logBD();
+                    }
+                }
+                else
+                {
+                    log = user.Nombre + " ha eliminado el item: " + ItemToString(item);
+                }
+            }
+            else
+            {
+                log = user.Nombre + " ha eliminado el usuario: " + UsuarioToString(user2);
+            }
+
+            StreamWriter swLog = File.AppendText(rutaLog);
+            swLog.WriteLine(log);
+            swLog.Close();
+        }
     }
 }

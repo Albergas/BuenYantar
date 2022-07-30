@@ -70,7 +70,7 @@ namespace BuenYantar
 
         private void button2_Click(object sender, EventArgs e)
         {
-            HistorialFacturasTodas hft = new HistorialFacturasTodas(gestor);
+            HistorialFacturasTodas hft = new HistorialFacturasTodas(gestor, user);
             DialogResult d = hft.ShowDialog();
         }
 

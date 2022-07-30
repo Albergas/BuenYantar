@@ -12,13 +12,15 @@ namespace BuenYantar
         private int cantidad;
         private double precio;
         private int seguridad;
+        private int codigo;
 
-        public Item(string nombre, int cantidad, double precio, int seguridad)
+        public Item(string nombre, int cantidad, double precio, int seguridad, int codigo)
         {
             this.nombre = nombre;
             this.cantidad = cantidad;
             this.precio = precio;
             this.seguridad = seguridad;
+            this.codigo = codigo;
         }
 
         public string Nombre
@@ -31,6 +33,14 @@ namespace BuenYantar
             set
             {
                 this.nombre = value;
+            }
+        }
+
+        public int Codigo
+        {
+            get
+            {
+                return this.codigo;
             }
         }
 
