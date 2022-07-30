@@ -241,5 +241,13 @@ namespace BuenYantar
                 rtbFactura.Text = "";
             }
         }
+
+        private void btImprimir_Click(object sender, EventArgs e)
+        {
+            if (rtbFactura.Text != null && rtbFactura.Text != "")
+            {
+                gestor.imprimirTexto(rtbFactura.Text);
+            }
+        }
     }
 }

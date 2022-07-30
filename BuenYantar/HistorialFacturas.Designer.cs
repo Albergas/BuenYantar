@@ -39,6 +39,7 @@ namespace BuenYantar
             this.tbAno = new System.Windows.Forms.TextBox();
             this.btInforme = new System.Windows.Forms.Button();
             this.btConcatenar = new System.Windows.Forms.Button();
+            this.btImprimir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rtbFactura
@@ -133,11 +134,23 @@ namespace BuenYantar
             this.btConcatenar.UseVisualStyleBackColor = false;
             this.btConcatenar.Click += new System.EventHandler(this.btConcatenar_Click);
             // 
+            // btImprimir
+            // 
+            this.btImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(222)))));
+            this.btImprimir.Location = new System.Drawing.Point(608, 477);
+            this.btImprimir.Name = "btImprimir";
+            this.btImprimir.Size = new System.Drawing.Size(133, 68);
+            this.btImprimir.TabIndex = 22;
+            this.btImprimir.Text = "IMPRIMIR";
+            this.btImprimir.UseVisualStyleBackColor = false;
+            this.btImprimir.Click += new System.EventHandler(this.btImprimir_Click);
+            // 
             // HistorialFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 494);
+            this.ClientSize = new System.Drawing.Size(753, 555);
+            this.Controls.Add(this.btImprimir);
             this.Controls.Add(this.btConcatenar);
             this.Controls.Add(this.btInforme);
             this.Controls.Add(this.label3);
@@ -168,5 +181,6 @@ namespace BuenYantar
         private System.Windows.Forms.TextBox tbAno;
         private System.Windows.Forms.Button btInforme;
         private System.Windows.Forms.Button btConcatenar;
+        private System.Windows.Forms.Button btImprimir;
     }
 }

@@ -103,6 +103,7 @@ namespace BuenYantar
         private void actualizarLista()
         {
             this.lbInventario.Items.Clear();
+            actualizarOrdenacion();
 
             if (this.tbFiltrar.Text.Trim() != "")
             {
@@ -368,6 +369,11 @@ namespace BuenYantar
         private void arreglarPrecio()
         {
             tbPrecio.Text = tbPrecio.Text.Replace(".", ",");
+        }
+
+        private void actualizarOrdenacion()
+        {
+            inventarioOrdenado = inventario.ordenado();
         }
 
         private void tbCodigo_TextChanged(object sender, EventArgs e)

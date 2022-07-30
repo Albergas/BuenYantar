@@ -17,11 +17,13 @@ namespace BuenYantar
         private Usuario user;
         private Collection<Factura> facturas;
         private Collection<Factura> facturasMostradas;
+        private bool variasMostradas;
 
         public HistorialFacturasTodas(Gestor gestor, Usuario user)
         {
             this.gestor = gestor;
             this.user = user;
+            this.variasMostradas = false;
             InitializeComponent();
 
             this.facturas = gestor.facturas();
@@ -316,6 +318,7 @@ namespace BuenYantar
         {
             if (lbFacturas.SelectedItem != null)
             {
+                this.variasMostradas = false;
                 rtbFactura.Text = facturasMostradas[lbFacturas.Items.Count - lbFacturas.SelectedIndex - 1].logSinHora();
                 btEliminar.Visible = true;
             }
@@ -365,6 +368,7 @@ namespace BuenYantar
             if(lbFacturas.Items.Count > 0)
             {
                 rtbFactura.Text = Factura.logMerge(facturasMostradas);
+                this.variasMostradas = true;
             }
         }
 
@@ -387,10 +391,19 @@ namespace BuenYantar
             if(facturasMostradas.Count > 0)
             {
                 rtbFactura.Text = Factura.logUnaAUna(facturasMostradas);
+                this.variasMostradas = true;
             }
             else
             {
                 rtbFactura.Text = "";
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if(rtbFactura.Text != null && rtbFactura.Text != "")
+            {
+                gestor.imprimirTexto(rtbFactura.Text);
             }
         }
     }
