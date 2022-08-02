@@ -21,6 +21,7 @@ namespace BuenYantar
             InitializeComponent();
             this.tbPassword.PasswordChar = '•';
             this.secretPassword = true;
+            lbAvisos.Text = "";
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace BuenYantar
             user = gestor.login(tbUsuario.Text, tbPassword.Text);
             if(user == null)
             {
-                MessageBox.Show("Error: Usuario o contraseña incorrectos");
+                lbAvisos.Text = "Error: usuario o contraseña incorrectos";
             }
             else
             {

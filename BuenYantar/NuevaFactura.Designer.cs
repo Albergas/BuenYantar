@@ -55,9 +55,9 @@ namespace BuenYantar
             this.lbInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbInventario.FormattingEnabled = true;
             this.lbInventario.ItemHeight = 29;
-            this.lbInventario.Location = new System.Drawing.Point(41, 67);
+            this.lbInventario.Location = new System.Drawing.Point(40, 69);
             this.lbInventario.Name = "lbInventario";
-            this.lbInventario.Size = new System.Drawing.Size(374, 468);
+            this.lbInventario.Size = new System.Drawing.Size(408, 468);
             this.lbInventario.TabIndex = 0;
             this.lbInventario.SelectedIndexChanged += new System.EventHandler(this.lbInventario_SelectedIndexChanged);
             // 
@@ -67,9 +67,9 @@ namespace BuenYantar
             this.lbFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFactura.FormattingEnabled = true;
             this.lbFactura.ItemHeight = 29;
-            this.lbFactura.Location = new System.Drawing.Point(918, 67);
+            this.lbFactura.Location = new System.Drawing.Point(895, 69);
             this.lbFactura.Name = "lbFactura";
-            this.lbFactura.Size = new System.Drawing.Size(374, 468);
+            this.lbFactura.Size = new System.Drawing.Size(605, 468);
             this.lbFactura.TabIndex = 1;
             // 
             // label1
@@ -77,7 +77,7 @@ namespace BuenYantar
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 35);
+            this.label1.Location = new System.Drawing.Point(35, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(234, 29);
             this.label1.TabIndex = 2;
@@ -88,7 +88,7 @@ namespace BuenYantar
             this.lb2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lb2.AutoSize = true;
             this.lb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb2.Location = new System.Drawing.Point(36, 544);
+            this.lb2.Location = new System.Drawing.Point(35, 546);
             this.lb2.Name = "lb2";
             this.lb2.Size = new System.Drawing.Size(81, 29);
             this.lb2.TabIndex = 5;
@@ -98,9 +98,9 @@ namespace BuenYantar
             // 
             this.tbFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFiltrar.Location = new System.Drawing.Point(123, 541);
+            this.tbFiltrar.Location = new System.Drawing.Point(122, 543);
             this.tbFiltrar.Name = "tbFiltrar";
-            this.tbFiltrar.Size = new System.Drawing.Size(292, 35);
+            this.tbFiltrar.Size = new System.Drawing.Size(326, 35);
             this.tbFiltrar.TabIndex = 4;
             this.tbFiltrar.TextChanged += new System.EventHandler(this.tbFiltrar_TextChanged);
             // 
@@ -109,7 +109,7 @@ namespace BuenYantar
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(913, 35);
+            this.label2.Location = new System.Drawing.Point(890, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 29);
             this.label2.TabIndex = 6;
@@ -119,7 +119,7 @@ namespace BuenYantar
             // 
             this.tbProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbProducto.Location = new System.Drawing.Point(460, 181);
+            this.tbProducto.Location = new System.Drawing.Point(481, 183);
             this.tbProducto.Name = "tbProducto";
             this.tbProducto.ReadOnly = true;
             this.tbProducto.Size = new System.Drawing.Size(355, 35);
@@ -129,7 +129,7 @@ namespace BuenYantar
             // 
             this.tbCantidad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCantidad.Location = new System.Drawing.Point(460, 326);
+            this.tbCantidad.Location = new System.Drawing.Point(481, 328);
             this.tbCantidad.Name = "tbCantidad";
             this.tbCantidad.Size = new System.Drawing.Size(355, 35);
             this.tbCantidad.TabIndex = 8;
@@ -140,7 +140,7 @@ namespace BuenYantar
             this.lbProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbProducto.AutoSize = true;
             this.lbProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProducto.Location = new System.Drawing.Point(455, 149);
+            this.lbProducto.Location = new System.Drawing.Point(476, 151);
             this.lbProducto.Name = "lbProducto";
             this.lbProducto.Size = new System.Drawing.Size(323, 29);
             this.lbProducto.TabIndex = 9;
@@ -151,7 +151,7 @@ namespace BuenYantar
             this.lbCantidad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbCantidad.AutoSize = true;
             this.lbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidad.Location = new System.Drawing.Point(455, 294);
+            this.lbCantidad.Location = new System.Drawing.Point(476, 296);
             this.lbCantidad.Name = "lbCantidad";
             this.lbCantidad.Size = new System.Drawing.Size(116, 29);
             this.lbCantidad.TabIndex = 10;
@@ -162,7 +162,7 @@ namespace BuenYantar
             this.lbPrecio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbPrecio.AutoSize = true;
             this.lbPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrecio.Location = new System.Drawing.Point(455, 223);
+            this.lbPrecio.Location = new System.Drawing.Point(476, 225);
             this.lbPrecio.Name = "lbPrecio";
             this.lbPrecio.Size = new System.Drawing.Size(204, 29);
             this.lbPrecio.TabIndex = 12;
@@ -172,7 +172,7 @@ namespace BuenYantar
             // 
             this.tbPrecio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPrecio.Location = new System.Drawing.Point(460, 256);
+            this.tbPrecio.Location = new System.Drawing.Point(481, 258);
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.ReadOnly = true;
             this.tbPrecio.Size = new System.Drawing.Size(355, 35);
@@ -183,7 +183,7 @@ namespace BuenYantar
             this.btAniadir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btAniadir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
             this.btAniadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAniadir.Location = new System.Drawing.Point(680, 374);
+            this.btAniadir.Location = new System.Drawing.Point(701, 376);
             this.btAniadir.Name = "btAniadir";
             this.btAniadir.Size = new System.Drawing.Size(135, 98);
             this.btAniadir.TabIndex = 13;
@@ -196,9 +196,9 @@ namespace BuenYantar
             this.btAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
             this.btAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAceptar.Location = new System.Drawing.Point(1151, 595);
+            this.btAceptar.Location = new System.Drawing.Point(1277, 597);
             this.btAceptar.Name = "btAceptar";
-            this.btAceptar.Size = new System.Drawing.Size(141, 94);
+            this.btAceptar.Size = new System.Drawing.Size(223, 94);
             this.btAceptar.TabIndex = 14;
             this.btAceptar.Text = "ACEPTAR";
             this.btAceptar.UseVisualStyleBackColor = false;
@@ -208,10 +208,10 @@ namespace BuenYantar
             // 
             this.tbTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTotal.Location = new System.Drawing.Point(1059, 544);
+            this.tbTotal.Location = new System.Drawing.Point(997, 543);
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.ReadOnly = true;
-            this.tbTotal.Size = new System.Drawing.Size(233, 35);
+            this.tbTotal.Size = new System.Drawing.Size(503, 35);
             this.tbTotal.TabIndex = 15;
             // 
             // label3
@@ -219,20 +219,20 @@ namespace BuenYantar
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(913, 547);
+            this.label3.Location = new System.Drawing.Point(890, 546);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 29);
+            this.label3.Size = new System.Drawing.Size(101, 29);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Precio total:";
+            this.label3.Text = "Importe:";
             // 
             // btReset
             // 
             this.btReset.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btReset.Location = new System.Drawing.Point(1059, 622);
+            this.btReset.Location = new System.Drawing.Point(1134, 624);
             this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(86, 67);
+            this.btReset.Size = new System.Drawing.Size(118, 67);
             this.btReset.TabIndex = 17;
             this.btReset.Text = "RESET";
             this.btReset.UseVisualStyleBackColor = false;
@@ -244,7 +244,7 @@ namespace BuenYantar
             this.lbAvisos.AutoSize = true;
             this.lbAvisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAvisos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbAvisos.Location = new System.Drawing.Point(36, 606);
+            this.lbAvisos.Location = new System.Drawing.Point(57, 608);
             this.lbAvisos.Name = "lbAvisos";
             this.lbAvisos.Size = new System.Drawing.Size(0, 25);
             this.lbAvisos.TabIndex = 18;
@@ -253,7 +253,7 @@ namespace BuenYantar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1361, 712);
+            this.ClientSize = new System.Drawing.Size(1537, 712);
             this.Controls.Add(this.lbAvisos);
             this.Controls.Add(this.btReset);
             this.Controls.Add(this.label3);

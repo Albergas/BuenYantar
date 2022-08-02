@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -14,6 +15,7 @@ namespace BuenYantar
     {
         private Gestor gestor;
         private Inventario inventario;
+        private Collection<Item> inventarioOrdenado;
         private Item seleccionado;
         private Factura factura;
         private Usuario user;
@@ -26,8 +28,9 @@ namespace BuenYantar
             this.seleccionado = null;
             this.user = user;
             lbAvisos.Text = "";
+            this.inventarioOrdenado = this.inventario.ordenado();
 
-            foreach (Item item in this.inventario.Items)
+            foreach (Item item in this.inventarioOrdenado)
             {
                 this.lbInventario.Items.Add(item.Nombre);
             }
@@ -38,10 +41,11 @@ namespace BuenYantar
         private void actualizarLista()
         {
             this.lbInventario.Items.Clear();
+            actualizarOrdenacion();
 
             if (this.tbFiltrar.Text.Trim() != "")
             {
-                foreach (Item item in this.inventario.Items)
+                foreach (Item item in this.inventarioOrdenado)
                 {
                     if (item.Nombre.Contains(this.tbFiltrar.Text))
                         this.lbInventario.Items.Add(item.Nombre);
@@ -49,7 +53,7 @@ namespace BuenYantar
             }
             else
             {
-                foreach (Item item in this.inventario.Items)
+                foreach (Item item in this.inventarioOrdenado)
                 {
                     this.lbInventario.Items.Add(item.Nombre);
                 }
@@ -130,23 +134,35 @@ namespace BuenYantar
             int n;
             if(!Int32.TryParse(tbCantidad.Text, out n))
             {
-                tbCantidad.Text = "";
+                if (tbCantidad.Text.Contains("-") && !tbCantidad.Text.Contains("--"))
+                {
+
+                }
+                else
+                    tbCantidad.Text = "";
             }
         }
 
         private void btAniadir_Click(object sender, EventArgs e)
         {
-            if(tbCantidad.Text != null && tbCantidad.Text != "")
+            try
             {
-                factura.add(seleccionado, Int32.Parse(tbCantidad.Text));
+                if (tbCantidad.Text != null && tbCantidad.Text != "")
+                {
+                    factura.add(seleccionado, Int32.Parse(tbCantidad.Text));
 
-                if (!gestor.suficienteCantidad(seleccionado.Nombre, Int32.Parse(tbCantidad.Text)))
-                    lbAvisos.Text = "AVISO: estás incluyendo en la factura más del stock registrado.\nEl stock quedará en negativo si aceptas la factura.";
+                    if (!gestor.suficienteCantidad(seleccionado.Nombre, Int32.Parse(tbCantidad.Text)))
+                        lbAvisos.Text = "AVISO: estás incluyendo en la factura más del stock registrado.\nEl stock quedará en negativo si aceptas la factura.";
 
+                    tbCantidad.Text = "";
+
+                    esconder();
+                    actualizarListaFactura();
+                }
+            }
+            catch(FormatException ex)
+            {
                 tbCantidad.Text = "";
-
-                esconder();
-                actualizarListaFactura();
             }
         }
 
@@ -176,5 +192,10 @@ namespace BuenYantar
         {
 
         }
+        private void actualizarOrdenacion()
+        {
+            inventarioOrdenado = inventario.ordenado();
+        }
+
     }
 }

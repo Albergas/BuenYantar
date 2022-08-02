@@ -50,6 +50,8 @@ namespace BuenYantar
             this.btGuardarNuevo = new System.Windows.Forms.Button();
             this.tbCodigo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbFamilia = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbInventario
@@ -68,9 +70,9 @@ namespace BuenYantar
             // 
             this.tbFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFiltrar.Location = new System.Drawing.Point(197, 568);
+            this.tbFiltrar.Location = new System.Drawing.Point(149, 568);
             this.tbFiltrar.Name = "tbFiltrar";
-            this.tbFiltrar.Size = new System.Drawing.Size(421, 35);
+            this.tbFiltrar.Size = new System.Drawing.Size(469, 35);
             this.tbFiltrar.TabIndex = 1;
             this.tbFiltrar.TextChanged += new System.EventHandler(this.tbFiltrar_TextChanged);
             // 
@@ -79,11 +81,11 @@ namespace BuenYantar
             this.lb2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lb2.AutoSize = true;
             this.lb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb2.Location = new System.Drawing.Point(110, 571);
+            this.lb2.Location = new System.Drawing.Point(36, 571);
             this.lb2.Name = "lb2";
-            this.lb2.Size = new System.Drawing.Size(81, 29);
+            this.lb2.Size = new System.Drawing.Size(107, 29);
             this.lb2.TabIndex = 3;
-            this.lb2.Text = "Filtrar:";
+            this.lb2.Text = "Nombre:";
             // 
             // label1
             // 
@@ -290,12 +292,35 @@ namespace BuenYantar
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 29);
             this.label5.TabIndex = 24;
-            this.label5.Text = "Código:";
+            this.label5.Text = "Familia:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(36, 612);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(98, 29);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Familia:";
+            // 
+            // tbFamilia
+            // 
+            this.tbFamilia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbFamilia.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFamilia.Location = new System.Drawing.Point(149, 609);
+            this.tbFamilia.Name = "tbFamilia";
+            this.tbFamilia.Size = new System.Drawing.Size(253, 35);
+            this.tbFamilia.TabIndex = 26;
+            this.tbFamilia.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // VerInventario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1340, 717);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tbFamilia);
             this.Controls.Add(this.tbCodigo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btGuardarNuevo);
@@ -352,5 +377,7 @@ namespace BuenYantar
         private System.Windows.Forms.Button btGuardarNuevo;
         private System.Windows.Forms.TextBox tbCodigo;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbFamilia;
     }
 }

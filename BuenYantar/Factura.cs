@@ -141,6 +141,7 @@ namespace BuenYantar
             char[] nombre;
             char[] precioTemp;
             char[] precio;
+            int corrector;
 
             precItem = item.Item2 * item.Item1.Precio;
             for (int i = 0; i < 26; i++)
@@ -152,11 +153,16 @@ namespace BuenYantar
             precioTemp = (item.Item1.Precio * item.Item2).ToString().ToCharArray();
             precio = completarDecimales(precioTemp);
 
-            for (int i = 0; i < 2 && i < cant.Length; i++)
+            for (int i = 0; i < cant.Length; i++)
                 temp[i] = cant[i];
 
+            if (cant.Length < 3)
+                corrector = 3;
+            else
+                corrector = cant.Length + 1;
+
             for (int i = 0; i < 16 && i < nombre.Length; i++)
-                temp[i + 3] = nombre[i];
+                temp[i + corrector] = nombre[i];
 
             temp[26 - precio.Length - 1] = ' ';
             for (int i = 0; i < precio.Length; i++)
@@ -223,6 +229,14 @@ namespace BuenYantar
             bajo = facturas[0].date;
             alto = facturas[0].date;
 
+            Collection<string> socios = new Collection<string>();
+
+            foreach(Factura factura in facturas)
+            {
+                if (!socios.Contains(factura.nombreSocio))
+                    socios.Add(factura.nombreSocio);
+            }
+
             Factura facturaMerged = new Factura(null, new DateTime(1), "");
             foreach(Factura f in facturas)
             {
@@ -238,7 +252,11 @@ namespace BuenYantar
             }
 
             string s = "==========================\n\nFRA. SOCIEDAD BUEN YANTAR\n\n"
-                + "\n  Resumen de: " + facturas.Count + " facturas\n\n" + bajo.ToShortDateString() + " - " + alto.ToShortDateString() + "\n\n--------------------------\n\n";
+                + "\n  Resumen de: " + facturas.Count + " facturas\n\n";
+            s += "Socios:\n";
+            foreach (string socio in socios)
+                s += "  " + socio +"\n";
+            s += "\n" + bajo.ToShortDateString() + " - " + alto.ToShortDateString() + "\n\n--------------------------\n\n";
 
             foreach (Tuple<Item, int> item in facturaMerged.contenido)
             {
@@ -296,10 +314,9 @@ namespace BuenYantar
 
         private static char[] completarDecimales(char[] precio)
         {
-            
-
             char[] decimales = new char[2] { '0', '0' };
             char[] enteros = new char[3];
+            char[] nuevo;
             int pos = 0;
 
             pos = precio.Length;
@@ -307,25 +324,20 @@ namespace BuenYantar
                 if (precio[i] == ',')
                     pos = i;
 
-            char[] nuevo = new char[6];
-
-            if (precio.Length > 6)
-                nuevo = new char[pos + 3];
+            nuevo = new char[pos + 3];
 
             for (int i = 0; i < nuevo.Length; i++)
                 nuevo[i] = ' ';
 
             nuevo[nuevo.Length - 3] = ',';
 
-            if (precio.Length > 6)
-                enteros = new char[pos];
+            enteros = new char[pos];
 
             for (int i = 0; i < enteros.Length; i++)
                 enteros[i] = ' ';
 
             for (int i = 0; i < pos; i++)
                 enteros[enteros.Length - 1 - i] = precio[pos - 1 - i];
-
 
             for (int i = 0; i < precio.Length - pos - 1; i++)
                 decimales[i] = precio[i + pos + 1];

@@ -107,17 +107,31 @@ namespace BuenYantar
 
             if (this.tbFiltrar.Text.Trim() != "")
             {
-                foreach (Item item in this.inventarioOrdenado)
+                if(tbFamilia.Text.Trim() != "")
                 {
-                    if(item.Nombre.Contains(this.tbFiltrar.Text))
-                        this.lbInventario.Items.Add(item.Nombre);
+                    foreach (Item item in this.inventarioOrdenado)
+                        if (item.Nombre.Contains(this.tbFiltrar.Text) && item.Codigo == Int32.Parse(tbFamilia.Text))
+                            this.lbInventario.Items.Add(item.Nombre);
+                }
+                else
+                {
+                    foreach (Item item in this.inventarioOrdenado)
+                        if (item.Nombre.Contains(this.tbFiltrar.Text))
+                            this.lbInventario.Items.Add(item.Nombre);
                 }
             }
             else
             {
-                foreach (Item item in this.inventarioOrdenado)
+                if (tbFamilia.Text.Trim() != "")
                 {
-                    this.lbInventario.Items.Add(item.Nombre);
+                    foreach (Item item in this.inventarioOrdenado)
+                        if (item.Codigo == Int32.Parse(tbFamilia.Text))
+                            this.lbInventario.Items.Add(item.Nombre);
+                }
+                else
+                {
+                    foreach (Item item in this.inventarioOrdenado)
+                        this.lbInventario.Items.Add(item.Nombre);
                 }
             }
         }
@@ -381,6 +395,14 @@ namespace BuenYantar
             int n;
             if (!Int32.TryParse(tbCodigo.Text, out n))
                 tbCodigo.Text = "";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int n;
+            if (!Int32.TryParse(tbFamilia.Text, out n))
+                tbFamilia.Text = "";
+            this.actualizarLista();
         }
     }
 }

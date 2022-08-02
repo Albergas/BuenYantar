@@ -94,19 +94,16 @@ namespace BuenYantar
                 {
                     metido = false;
                     cantidadActual = ordenados.Count;
-                    Console.WriteLine("Hay que introducir el item: " + item.Nombre);
                     for (int i = 0; i < cantidadActual && !metido; i++)
                     {
                         if (ordenados[i].Codigo > item.Codigo)
                         {
-                            Console.WriteLine("Introducido en posicion: " + i);
                             ordenados.Insert(i, item);
                             metido = true;
                         }
                     }
                     if (!metido)
                     {
-                        Console.WriteLine("Introducido en ultima posicion");
                         ordenados.Add(item);
                     }
                 }
