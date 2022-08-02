@@ -30,6 +30,8 @@ namespace BuenYantar
             lbAvisos.Text = "";
             this.inventarioOrdenado = this.inventario.ordenado();
 
+            btQuitar.Visible = false;
+
             foreach (Item item in this.inventarioOrdenado)
             {
                 this.lbInventario.Items.Add(item.Nombre);
@@ -62,6 +64,7 @@ namespace BuenYantar
 
         private void actualizarListaFactura()
         {
+            btQuitar.Visible = false;
             this.lbFactura.Items.Clear();
             string s;
             double d;
@@ -145,6 +148,7 @@ namespace BuenYantar
 
         private void btAniadir_Click(object sender, EventArgs e)
         {
+            lbAvisos.Text = "";
             try
             {
                 if (tbCantidad.Text != null && tbCantidad.Text != "")
@@ -152,7 +156,7 @@ namespace BuenYantar
                     factura.add(seleccionado, Int32.Parse(tbCantidad.Text));
 
                     if (!gestor.suficienteCantidad(seleccionado.Nombre, Int32.Parse(tbCantidad.Text)))
-                        lbAvisos.Text = "AVISO: estás incluyendo en la factura más del stock registrado.\nEl stock quedará en negativo si aceptas la factura.";
+                        lbAvisos.Text = "AVISO: has incluido en la factura más del stock registrado.\nEl stock quedará en negativo si aceptas la factura.";
 
                     tbCantidad.Text = "";
 
@@ -197,5 +201,29 @@ namespace BuenYantar
             inventarioOrdenado = inventario.ordenado();
         }
 
+        private void lbFactura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lbFactura.SelectedItem != null)
+            {
+                btQuitar.Visible = true;
+            }
+            else
+            {
+                btQuitar.Visible = false;
+            }
+        }
+
+        private void btQuitar_Click(object sender, EventArgs e)
+        {
+            if(lbFactura.Items.Count > 0)
+            {
+                string name = factura.Contenido[lbFactura.SelectedIndex].Item1.Nombre;
+                Item item = new Item(name, 1, 1, 1, 1);
+                factura.remove(item);
+            }
+            
+            actualizarLista();
+            actualizarListaFactura();
+        }
     }
 }

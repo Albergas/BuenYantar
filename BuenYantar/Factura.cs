@@ -120,6 +120,20 @@ namespace BuenYantar
             return true;
         }
 
+        public void remove(Item item)
+        {
+            Tuple<Item, int> aborrar = null;
+            foreach (Tuple<Item, int> elemento in contenido)
+            {
+                if (elemento.Item1.Nombre.Equals(item.Nombre))
+                {
+                    aborrar = elemento;
+                }
+            }
+
+            contenido.Remove(aborrar);
+        }
+
         public bool contiene(Tuple<Item,int> tupla)
         {
             foreach(Tuple<Item,int> elem in contenido)

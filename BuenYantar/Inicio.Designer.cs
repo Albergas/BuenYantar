@@ -47,9 +47,9 @@ namespace BuenYantar
             this.btInventario.AutoSize = true;
             this.btInventario.BackColor = System.Drawing.Color.LemonChiffon;
             this.btInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btInventario.Location = new System.Drawing.Point(23, 174);
+            this.btInventario.Location = new System.Drawing.Point(82, 235);
             this.btInventario.Name = "btInventario";
-            this.btInventario.Size = new System.Drawing.Size(321, 358);
+            this.btInventario.Size = new System.Drawing.Size(248, 237);
             this.btInventario.TabIndex = 0;
             this.btInventario.Text = "Inventario";
             this.btInventario.UseVisualStyleBackColor = false;
@@ -60,7 +60,7 @@ namespace BuenYantar
             this.btFactura.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btFactura.BackColor = System.Drawing.Color.MistyRose;
             this.btFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFactura.Location = new System.Drawing.Point(404, 174);
+            this.btFactura.Location = new System.Drawing.Point(416, 172);
             this.btFactura.Name = "btFactura";
             this.btFactura.Size = new System.Drawing.Size(429, 358);
             this.btFactura.TabIndex = 1;
@@ -73,7 +73,7 @@ namespace BuenYantar
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(294, 48);
+            this.label1.Location = new System.Drawing.Point(121, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(277, 31);
             this.label1.TabIndex = 2;
@@ -83,10 +83,10 @@ namespace BuenYantar
             // 
             this.tbUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUser.Location = new System.Drawing.Point(577, 48);
+            this.tbUser.Location = new System.Drawing.Point(404, 49);
             this.tbUser.Name = "tbUser";
             this.tbUser.ReadOnly = true;
-            this.tbUser.Size = new System.Drawing.Size(313, 38);
+            this.tbUser.Size = new System.Drawing.Size(770, 38);
             this.tbUser.TabIndex = 3;
             // 
             // btReponer
@@ -120,9 +120,9 @@ namespace BuenYantar
             this.btHistorial.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.btHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btHistorial.Location = new System.Drawing.Point(894, 174);
+            this.btHistorial.Location = new System.Drawing.Point(926, 235);
             this.btHistorial.Name = "btHistorial";
-            this.btHistorial.Size = new System.Drawing.Size(348, 358);
+            this.btHistorial.Size = new System.Drawing.Size(248, 237);
             this.btHistorial.TabIndex = 6;
             this.btHistorial.Text = "Mis facturas";
             this.btHistorial.UseVisualStyleBackColor = false;

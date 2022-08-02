@@ -61,7 +61,7 @@ namespace BuenYantar
                 {
                     if(gestor.construirUsuario(tbNombre.Text) != null)
                     {
-                        lbAvisos.Text = "Error: ya existe un socio con ese nombre de usuario, elige otro";
+                        lbAvisos.Text = "Error: ya existe un socio con ese nombre de usuario";
                         tbNombre.Text = "";
                     }
                     else

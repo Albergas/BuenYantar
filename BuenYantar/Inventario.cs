@@ -70,9 +70,9 @@ namespace BuenYantar
             this.inventario = gestor.items();
         }
 
-        public void modifyItem(Item item)
+        public void modifyItem(Item item, string nombreViejo)
         {
-            gestor.modifyItem(item);
+            gestor.modifyItem(item, nombreViejo);
             this.inventario = gestor.items();
         }
 

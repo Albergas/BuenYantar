@@ -52,6 +52,7 @@ namespace BuenYantar
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbFamilia = new System.Windows.Forms.TextBox();
+            this.btImprimir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbInventario
@@ -226,7 +227,7 @@ namespace BuenYantar
             this.btGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btGuardar.Location = new System.Drawing.Point(995, 499);
+            this.btGuardar.Location = new System.Drawing.Point(995, 408);
             this.btGuardar.Name = "btGuardar";
             this.btGuardar.Size = new System.Drawing.Size(144, 85);
             this.btGuardar.TabIndex = 16;
@@ -265,7 +266,7 @@ namespace BuenYantar
             this.btGuardarNuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btGuardarNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btGuardarNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btGuardarNuevo.Location = new System.Drawing.Point(995, 408);
+            this.btGuardarNuevo.Location = new System.Drawing.Point(995, 499);
             this.btGuardarNuevo.Name = "btGuardarNuevo";
             this.btGuardarNuevo.Size = new System.Drawing.Size(144, 85);
             this.btGuardarNuevo.TabIndex = 23;
@@ -311,14 +312,28 @@ namespace BuenYantar
             this.tbFamilia.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbFamilia.Location = new System.Drawing.Point(149, 609);
             this.tbFamilia.Name = "tbFamilia";
-            this.tbFamilia.Size = new System.Drawing.Size(253, 35);
+            this.tbFamilia.Size = new System.Drawing.Size(159, 35);
             this.tbFamilia.TabIndex = 26;
             this.tbFamilia.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btImprimir
+            // 
+            this.btImprimir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
+            this.btImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btImprimir.Location = new System.Drawing.Point(314, 609);
+            this.btImprimir.Name = "btImprimir";
+            this.btImprimir.Size = new System.Drawing.Size(107, 85);
+            this.btImprimir.TabIndex = 28;
+            this.btImprimir.Text = "IMPRIMIR";
+            this.btImprimir.UseVisualStyleBackColor = false;
+            this.btImprimir.Click += new System.EventHandler(this.btImprimir_Click);
             // 
             // VerInventario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1340, 717);
+            this.Controls.Add(this.btImprimir);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbFamilia);
             this.Controls.Add(this.tbCodigo);
@@ -379,5 +394,6 @@ namespace BuenYantar
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbFamilia;
+        private System.Windows.Forms.Button btImprimir;
     }
 }

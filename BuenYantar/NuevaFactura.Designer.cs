@@ -47,6 +47,7 @@ namespace BuenYantar
             this.label3 = new System.Windows.Forms.Label();
             this.btReset = new System.Windows.Forms.Button();
             this.lbAvisos = new System.Windows.Forms.Label();
+            this.btQuitar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbInventario
@@ -71,6 +72,7 @@ namespace BuenYantar
             this.lbFactura.Name = "lbFactura";
             this.lbFactura.Size = new System.Drawing.Size(605, 468);
             this.lbFactura.TabIndex = 1;
+            this.lbFactura.SelectedIndexChanged += new System.EventHandler(this.lbFactura_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -230,9 +232,9 @@ namespace BuenYantar
             this.btReset.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btReset.Location = new System.Drawing.Point(1134, 624);
+            this.btReset.Location = new System.Drawing.Point(1153, 597);
             this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(118, 67);
+            this.btReset.Size = new System.Drawing.Size(118, 94);
             this.btReset.TabIndex = 17;
             this.btReset.Text = "RESET";
             this.btReset.UseVisualStyleBackColor = false;
@@ -249,11 +251,26 @@ namespace BuenYantar
             this.lbAvisos.Size = new System.Drawing.Size(0, 25);
             this.lbAvisos.TabIndex = 18;
             // 
+            // btQuitar
+            // 
+            this.btQuitar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btQuitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.btQuitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btQuitar.Location = new System.Drawing.Point(895, 600);
+            this.btQuitar.Name = "btQuitar";
+            this.btQuitar.Size = new System.Drawing.Size(118, 92);
+            this.btQuitar.TabIndex = 19;
+            this.btQuitar.Text = "Quitar de la factura";
+            this.btQuitar.UseVisualStyleBackColor = false;
+            this.btQuitar.Click += new System.EventHandler(this.btQuitar_Click);
+            // 
             // NuevaFactura
             // 
+            this.AcceptButton = this.btAniadir;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1537, 712);
+            this.Controls.Add(this.btQuitar);
             this.Controls.Add(this.lbAvisos);
             this.Controls.Add(this.btReset);
             this.Controls.Add(this.label3);
@@ -303,5 +320,6 @@ namespace BuenYantar
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btReset;
         private System.Windows.Forms.Label lbAvisos;
+        private System.Windows.Forms.Button btQuitar;
     }
 }

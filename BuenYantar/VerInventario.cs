@@ -179,6 +179,8 @@ namespace BuenYantar
         {
             int cantidad, seguridad, codigo;
             double precio;
+            string nombreViejo;
+
             arreglarPrecio();
             if (Int32.TryParse(tbStock.Text, out cantidad))
             {
@@ -190,6 +192,7 @@ namespace BuenYantar
                         {
                             if (Int32.TryParse(tbCodigo.Text, out codigo))
                             {
+                                nombreViejo = seleccionado.Nombre;
                                 seleccionado.Nombre = tbNombre.Text;
                                 seleccionado.Cantidad = cantidad;
                                 seleccionado.Seguridad = seguridad;
@@ -198,7 +201,7 @@ namespace BuenYantar
 
                                 MessageBox.Show("Cambios guardados");
 
-                                inventario.modifyItem(seleccionado);
+                                inventario.modifyItem(seleccionado, nombreViejo);
 
                                 this.tbNombre.ReadOnly = true;
                                 this.tbStock.ReadOnly = true;
@@ -221,7 +224,8 @@ namespace BuenYantar
                 }
             }
 
-            // MessageBox.Show("Datos no válidos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            actualizarLista();
+            actualizarDatos();
         }
 
         private void btStockMenos_Click(object sender, EventArgs e)
@@ -329,6 +333,9 @@ namespace BuenYantar
                     }
                 }
             }
+
+            actualizarLista();
+            actualizarDatos();
         }
 
         private void btEliminar_Click(object sender, EventArgs e)
@@ -403,6 +410,22 @@ namespace BuenYantar
             if (!Int32.TryParse(tbFamilia.Text, out n))
                 tbFamilia.Text = "";
             this.actualizarLista();
+        }
+
+        private void btImprimir_Click(object sender, EventArgs e)
+        {
+            string s = "==========================\n\nSTOCK SOCIEDAD BUEN YANTAR\n\nFecha: " + DateTime.Now.ToString() + "\n\n--------------------------\n\n";
+            foreach(Item item in inventarioOrdenado)
+            {
+                if(item.Cantidad.ToString().Length == 1)
+                    s += item.Cantidad + "  " + item.Nombre + "\n";
+                else
+                    s += item.Cantidad + " " + item.Nombre + "\n";
+            }
+            s += "\n==========================";
+
+            Gestor gestor = new Gestor();
+            gestor.imprimirTexto(s);
         }
     }
 }

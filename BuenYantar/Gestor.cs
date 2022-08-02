@@ -145,9 +145,9 @@ namespace BuenYantar
             sw.Close();
         }
 
-        public void modifyItem(Item item)
+        public void modifyItem(Item item, string nombreViejo)
         {
-            this.removeItem(item.Nombre);
+            this.removeItem(nombreViejo);
             this.addItem(item);
         }
 
@@ -406,7 +406,7 @@ namespace BuenYantar
                     if (elemento.Item1.Nombre.Equals(item.Nombre))
                     {
                         item.Cantidad = item.Cantidad - elemento.Item2;
-                        modifyItem(item);
+                        modifyItem(item, item.Nombre);
                     }
                 }
             }
