@@ -132,38 +132,69 @@ namespace BuenYantar
             return false;
         }
 
-        public string log()
+        private static string logTuple(Tuple<Item, int> item)
         {
             double precItem;
+            char[] temp = new char[26];
+            string tempString;
+            char[] cant;
+            char[] nombre;
+            char[] precioTemp;
+            char[] precio;
 
-            string s = "=======================================\n\n FACTURA SOCIEDAD BUEN YANTAR\n\nSocio: " + nombreSocio
-                + "\n\nFecha: " + date.ToString() + "\n\n---------------------------------------\n\n";
+            precItem = item.Item2 * item.Item1.Precio;
+            for (int i = 0; i < 26; i++)
+            {
+                temp[i] = ' ';
+            }
+            nombre = item.Item1.Nombre.ToCharArray();
+            cant = item.Item2.ToString().ToCharArray();
+            precioTemp = (item.Item1.Precio * item.Item2).ToString().ToCharArray();
+            precio = completarDecimales(precioTemp);
+
+            for (int i = 0; i < 2 && i < cant.Length; i++)
+                temp[i] = cant[i];
+
+            for (int i = 0; i < 16 && i < nombre.Length; i++)
+                temp[i + 3] = nombre[i];
+
+            temp[26 - precio.Length - 1] = ' ';
+            for (int i = 0; i < precio.Length; i++)
+                temp[i + 26 - precio.Length] = precio[i];
+
+            tempString = new string(temp);
+
+            return tempString;
+        }
+
+        public string log()
+        {
+
+            string s = "==========================\n\nFRA. SOCIEDAD BUEN YANTAR\n\nSocio: " + nombreSocio
+                + "\n\nFecha: " + date.ToString() + "\n\n--------------------------\n\n";
 
             foreach (Tuple<Item, int> item in contenido)
             {
-                precItem = item.Item2 * item.Item1.Precio;
-                s += item.Item2 + " " + item.Item1.Nombre + " (" + item.Item2 + " x " + item.Item1.Precio + " = " + precItem + ")\n";
+                s += logTuple(item) + "\n";
             }
 
-            s += "\nTOTAL: " + precioTotal() + "€\n\n=======================================";
+            s += "\nTOTAL: " + precioTotal() + "€\n\n==========================";
             
             return s;
         }
 
         public string logSinHora()
         {
-            double precItem;
 
-            string s = "=======================================\n\n FACTURA SOCIEDAD BUEN YANTAR\n\nSocio: " + nombreSocio
-                + "\n\nFecha: " + date.ToShortDateString() + "\n\n---------------------------------------\n\n";
+            string s = "==========================\n\nFRA. SOCIEDAD BUEN YANTAR\n\nSocio: " + nombreSocio
+                + "\n\nFecha: " + date.ToShortDateString() + "\n\n--------------------------\n\n";
 
             foreach (Tuple<Item, int> item in contenido)
             {
-                precItem = item.Item2 * item.Item1.Precio;
-                s += item.Item2 + " " + item.Item1.Nombre + " (" + item.Item2 + " x " + item.Item1.Precio + " = " + precItem + ")\n";
+                s += logTuple(item) + "\n";
             }
 
-            s += "\nTOTAL: " + precioTotal() + "€\n\n=======================================";
+            s += "\nTOTAL: " + precioTotal() + "€\n\n==========================";
 
             return s;
         }
@@ -206,18 +237,15 @@ namespace BuenYantar
                 }
             }
 
-            double precItem;
-
-            string s = "=======================================\n\n RESUMEN FACTURAS SOCIEDAD BUEN YANTAR\n\n"
-                + "\n\n  Resumen de: " + facturas.Count + " facturas\n\n  Del " + bajo.ToShortDateString() + " al " + alto.ToShortDateString() + "\n\n---------------------------------------\n\n";
+            string s = "==========================\n\nFRA. SOCIEDAD BUEN YANTAR\n\n"
+                + "\n  Resumen de: " + facturas.Count + " facturas\n\n" + bajo.ToShortDateString() + " - " + alto.ToShortDateString() + "\n\n--------------------------\n\n";
 
             foreach (Tuple<Item, int> item in facturaMerged.contenido)
             {
-                precItem = item.Item2 * item.Item1.Precio;
-                s += item.Item2 + " " + item.Item1.Nombre + " (" + item.Item2 + " x " + item.Item1.Precio + " = " + precItem + ")\n";
+                s += logTuple(item) + "\n";
             }
 
-            s += "\nTOTAL: " + facturaMerged.precioTotal() + "€\n\n=======================================";
+            s += "\nTOTAL: " + facturaMerged.precioTotal() + "€\n\n==========================";
 
             return s;
         }
@@ -264,6 +292,51 @@ namespace BuenYantar
                 s = s.Substring(0, 200);
             }
             return s;
+        }
+
+        private static char[] completarDecimales(char[] precio)
+        {
+            
+
+            char[] decimales = new char[2] { '0', '0' };
+            char[] enteros = new char[3];
+            int pos = 0;
+
+            pos = precio.Length;
+            for (int i = 0; i < precio.Length; i++)
+                if (precio[i] == ',')
+                    pos = i;
+
+            char[] nuevo = new char[6];
+
+            if (precio.Length > 6)
+                nuevo = new char[pos + 3];
+
+            for (int i = 0; i < nuevo.Length; i++)
+                nuevo[i] = ' ';
+
+            nuevo[nuevo.Length - 3] = ',';
+
+            if (precio.Length > 6)
+                enteros = new char[pos];
+
+            for (int i = 0; i < enteros.Length; i++)
+                enteros[i] = ' ';
+
+            for (int i = 0; i < pos; i++)
+                enteros[enteros.Length - 1 - i] = precio[pos - 1 - i];
+
+
+            for (int i = 0; i < precio.Length - pos - 1; i++)
+                decimales[i] = precio[i + pos + 1];
+
+            for (int i = 0; i < enteros.Length; i++)
+                nuevo[enteros.Length - 1 - i] = enteros[enteros.Length - 1 - i];
+
+            for (int i = 0; i < decimales.Length; i++)
+                nuevo[enteros.Length + 1 + i] = decimales[i];
+
+            return nuevo;
         }
     }
 }

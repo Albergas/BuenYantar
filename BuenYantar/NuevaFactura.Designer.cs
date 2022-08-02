@@ -51,113 +51,141 @@ namespace BuenYantar
             // 
             // lbInventario
             // 
+            this.lbInventario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbInventario.FormattingEnabled = true;
-            this.lbInventario.Location = new System.Drawing.Point(30, 37);
+            this.lbInventario.ItemHeight = 29;
+            this.lbInventario.Location = new System.Drawing.Point(41, 67);
             this.lbInventario.Name = "lbInventario";
-            this.lbInventario.Size = new System.Drawing.Size(194, 303);
+            this.lbInventario.Size = new System.Drawing.Size(374, 468);
             this.lbInventario.TabIndex = 0;
             this.lbInventario.SelectedIndexChanged += new System.EventHandler(this.lbInventario_SelectedIndexChanged);
             // 
             // lbFactura
             // 
+            this.lbFactura.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFactura.FormattingEnabled = true;
-            this.lbFactura.Location = new System.Drawing.Point(455, 37);
+            this.lbFactura.ItemHeight = 29;
+            this.lbFactura.Location = new System.Drawing.Point(918, 67);
             this.lbFactura.Name = "lbFactura";
-            this.lbFactura.Size = new System.Drawing.Size(212, 251);
+            this.lbFactura.Size = new System.Drawing.Size(374, 468);
             this.lbFactura.TabIndex = 1;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 21);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(36, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 13);
+            this.label1.Size = new System.Drawing.Size(234, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Selecciona producto";
             // 
             // lb2
             // 
+            this.lb2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lb2.AutoSize = true;
-            this.lb2.Location = new System.Drawing.Point(27, 349);
+            this.lb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb2.Location = new System.Drawing.Point(36, 544);
             this.lb2.Name = "lb2";
-            this.lb2.Size = new System.Drawing.Size(35, 13);
+            this.lb2.Size = new System.Drawing.Size(81, 29);
             this.lb2.TabIndex = 5;
             this.lb2.Text = "Filtrar:";
             // 
             // tbFiltrar
             // 
-            this.tbFiltrar.Location = new System.Drawing.Point(68, 346);
+            this.tbFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFiltrar.Location = new System.Drawing.Point(123, 541);
             this.tbFiltrar.Name = "tbFiltrar";
-            this.tbFiltrar.Size = new System.Drawing.Size(156, 20);
+            this.tbFiltrar.Size = new System.Drawing.Size(292, 35);
             this.tbFiltrar.TabIndex = 4;
             this.tbFiltrar.TextChanged += new System.EventHandler(this.tbFiltrar_TextChanged);
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(452, 21);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(913, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 13);
+            this.label2.Size = new System.Drawing.Size(260, 29);
             this.label2.TabIndex = 6;
             this.label2.Text = "Contenido de la factura";
             // 
             // tbProducto
             // 
-            this.tbProducto.Location = new System.Drawing.Point(245, 78);
+            this.tbProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProducto.Location = new System.Drawing.Point(460, 181);
             this.tbProducto.Name = "tbProducto";
             this.tbProducto.ReadOnly = true;
-            this.tbProducto.Size = new System.Drawing.Size(167, 20);
+            this.tbProducto.Size = new System.Drawing.Size(355, 35);
             this.tbProducto.TabIndex = 7;
             // 
             // tbCantidad
             // 
-            this.tbCantidad.Location = new System.Drawing.Point(245, 188);
+            this.tbCantidad.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCantidad.Location = new System.Drawing.Point(460, 326);
             this.tbCantidad.Name = "tbCantidad";
-            this.tbCantidad.Size = new System.Drawing.Size(167, 20);
+            this.tbCantidad.Size = new System.Drawing.Size(355, 35);
             this.tbCantidad.TabIndex = 8;
             this.tbCantidad.TextChanged += new System.EventHandler(this.tbCantidad_TextChanged);
             // 
             // lbProducto
             // 
+            this.lbProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbProducto.AutoSize = true;
-            this.lbProducto.Location = new System.Drawing.Point(242, 62);
+            this.lbProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProducto.Location = new System.Drawing.Point(455, 149);
             this.lbProducto.Name = "lbProducto";
-            this.lbProducto.Size = new System.Drawing.Size(147, 13);
+            this.lbProducto.Size = new System.Drawing.Size(323, 29);
             this.lbProducto.TabIndex = 9;
             this.lbProducto.Text = "Producto a añadir a la factura";
             // 
             // lbCantidad
             // 
+            this.lbCantidad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbCantidad.AutoSize = true;
-            this.lbCantidad.Location = new System.Drawing.Point(242, 172);
+            this.lbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCantidad.Location = new System.Drawing.Point(455, 294);
             this.lbCantidad.Name = "lbCantidad";
-            this.lbCantidad.Size = new System.Drawing.Size(52, 13);
+            this.lbCantidad.Size = new System.Drawing.Size(116, 29);
             this.lbCantidad.TabIndex = 10;
             this.lbCantidad.Text = "Unidades";
             // 
             // lbPrecio
             // 
+            this.lbPrecio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbPrecio.AutoSize = true;
-            this.lbPrecio.Location = new System.Drawing.Point(242, 117);
+            this.lbPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrecio.Location = new System.Drawing.Point(455, 223);
             this.lbPrecio.Name = "lbPrecio";
-            this.lbPrecio.Size = new System.Drawing.Size(90, 13);
+            this.lbPrecio.Size = new System.Drawing.Size(204, 29);
             this.lbPrecio.TabIndex = 12;
             this.lbPrecio.Text = "Precio por unidad";
             // 
             // tbPrecio
             // 
-            this.tbPrecio.Location = new System.Drawing.Point(245, 133);
+            this.tbPrecio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrecio.Location = new System.Drawing.Point(460, 256);
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.ReadOnly = true;
-            this.tbPrecio.Size = new System.Drawing.Size(167, 20);
+            this.tbPrecio.Size = new System.Drawing.Size(355, 35);
             this.tbPrecio.TabIndex = 11;
             // 
             // btAniadir
             // 
+            this.btAniadir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btAniadir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.btAniadir.Location = new System.Drawing.Point(337, 229);
+            this.btAniadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAniadir.Location = new System.Drawing.Point(680, 374);
             this.btAniadir.Name = "btAniadir";
-            this.btAniadir.Size = new System.Drawing.Size(75, 42);
+            this.btAniadir.Size = new System.Drawing.Size(135, 98);
             this.btAniadir.TabIndex = 13;
             this.btAniadir.Text = "Añadir a la factura";
             this.btAniadir.UseVisualStyleBackColor = false;
@@ -165,10 +193,12 @@ namespace BuenYantar
             // 
             // btAceptar
             // 
+            this.btAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
-            this.btAceptar.Location = new System.Drawing.Point(592, 394);
+            this.btAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAceptar.Location = new System.Drawing.Point(1151, 595);
             this.btAceptar.Name = "btAceptar";
-            this.btAceptar.Size = new System.Drawing.Size(75, 67);
+            this.btAceptar.Size = new System.Drawing.Size(141, 94);
             this.btAceptar.TabIndex = 14;
             this.btAceptar.Text = "ACEPTAR";
             this.btAceptar.UseVisualStyleBackColor = false;
@@ -176,27 +206,33 @@ namespace BuenYantar
             // 
             // tbTotal
             // 
-            this.tbTotal.Location = new System.Drawing.Point(521, 294);
+            this.tbTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTotal.Location = new System.Drawing.Point(1059, 544);
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.ReadOnly = true;
-            this.tbTotal.Size = new System.Drawing.Size(146, 20);
+            this.tbTotal.Size = new System.Drawing.Size(233, 35);
             this.tbTotal.TabIndex = 15;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(452, 297);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(913, 547);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(140, 29);
             this.label3.TabIndex = 16;
             this.label3.Text = "Precio total:";
             // 
             // btReset
             // 
+            this.btReset.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btReset.Location = new System.Drawing.Point(494, 394);
+            this.btReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btReset.Location = new System.Drawing.Point(1059, 622);
             this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(75, 67);
+            this.btReset.Size = new System.Drawing.Size(86, 67);
             this.btReset.TabIndex = 17;
             this.btReset.Text = "RESET";
             this.btReset.UseVisualStyleBackColor = false;
@@ -204,19 +240,20 @@ namespace BuenYantar
             // 
             // lbAvisos
             // 
+            this.lbAvisos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbAvisos.AutoSize = true;
-            this.lbAvisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAvisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAvisos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbAvisos.Location = new System.Drawing.Point(258, 349);
+            this.lbAvisos.Location = new System.Drawing.Point(36, 606);
             this.lbAvisos.Name = "lbAvisos";
-            this.lbAvisos.Size = new System.Drawing.Size(0, 13);
+            this.lbAvisos.Size = new System.Drawing.Size(0, 25);
             this.lbAvisos.TabIndex = 18;
             // 
             // NuevaFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 473);
+            this.ClientSize = new System.Drawing.Size(1361, 712);
             this.Controls.Add(this.lbAvisos);
             this.Controls.Add(this.btReset);
             this.Controls.Add(this.label3);
@@ -235,6 +272,9 @@ namespace BuenYantar
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbFactura);
             this.Controls.Add(this.lbInventario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NuevaFactura";
             this.Text = "NuevaFactura";
             this.Load += new System.EventHandler(this.NuevaFactura_Load);

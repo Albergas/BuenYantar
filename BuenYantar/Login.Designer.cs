@@ -39,42 +39,51 @@ namespace BuenYantar
             // 
             // tbUsuario
             // 
-            this.tbUsuario.Location = new System.Drawing.Point(84, 34);
+            this.tbUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsuario.Location = new System.Drawing.Point(299, 186);
             this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(124, 20);
+            this.tbUsuario.Size = new System.Drawing.Size(420, 38);
             this.tbUsuario.TabIndex = 0;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 37);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(177, 189);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(116, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "Usuario:";
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 63);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(130, 258);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.Size = new System.Drawing.Size(163, 31);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña:";
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(84, 60);
+            this.tbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.Location = new System.Drawing.Point(299, 260);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '•';
-            this.tbPassword.Size = new System.Drawing.Size(124, 20);
+            this.tbPassword.Size = new System.Drawing.Size(420, 38);
             this.tbPassword.TabIndex = 2;
             // 
             // btOK
             // 
-            this.btOK.Location = new System.Drawing.Point(133, 96);
+            this.btOK.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btOK.Location = new System.Drawing.Point(602, 323);
             this.btOK.Name = "btOK";
-            this.btOK.Size = new System.Drawing.Size(75, 37);
+            this.btOK.Size = new System.Drawing.Size(117, 113);
             this.btOK.TabIndex = 4;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
@@ -82,9 +91,10 @@ namespace BuenYantar
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(214, 60);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Location = new System.Drawing.Point(736, 260);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 20);
+            this.button1.Size = new System.Drawing.Size(66, 38);
             this.button1.TabIndex = 5;
             this.button1.Text = "ver";
             this.button1.UseVisualStyleBackColor = true;
@@ -95,15 +105,19 @@ namespace BuenYantar
             this.AcceptButton = this.btOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 166);
+            this.ClientSize = new System.Drawing.Size(992, 656);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btOK);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbUsuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
             this.Text = "Login";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

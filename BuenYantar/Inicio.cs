@@ -23,8 +23,13 @@ namespace BuenYantar
             InitializeComponent();
             this.tbUser.Text = user.NombreCompleto;
             this.DialogResult = DialogResult.None;
-
             btTodasFacturas.Visible = (this.user.Tipo == 0);
+
+            int w = this.Size.Width;
+            int h = this.Size.Height;
+
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+
         }
 
         private void btInventario_Click(object sender, EventArgs e)
