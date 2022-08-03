@@ -82,6 +82,7 @@ namespace BuenYantar
             // btOK
             // 
             this.btOK.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btOK.Location = new System.Drawing.Point(602, 323);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(117, 113);
@@ -93,6 +94,7 @@ namespace BuenYantar
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(736, 260);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(66, 38);
