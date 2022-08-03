@@ -45,11 +45,11 @@ namespace BuenYantar
             this.rutaUsuarios = rutaBase + @"buenyantarusuarios.txt";
             this.rutaFacturas = rutaBase + @"buenyantarfacturas.txt";
 
-            this.rutaInventarioCopiaSeguridad = rutaBase + @"backup\buenyantarinventariobackup.txt";
-            this.rutaUsuariosCopiaSeguridad = rutaBase + @"backup\buenyantarusuariosbackup.txt";
-            this.rutaFacturasCopiaSeguridad = rutaBase + @"backup\buenyantarfacturasbackup.txt";
+            this.rutaInventarioCopiaSeguridad = @"C:\Drivers\backup\buenyantarinventariobackup.txt";
+            this.rutaUsuariosCopiaSeguridad = @"C:\Drivers\backup\buenyantarusuariosbackup.txt";
+            this.rutaFacturasCopiaSeguridad = @"C:\Drivers\backup\buenyantarfacturasbackup.txt";
 
-            this.rutaLog = rutaBase + @"backup\log.txt";
+            this.rutaLog = @"C:\Drivers\backup\log.txt";
 
             this.rutaCarpetaFacturasBase = rutaBase + @"facturas\";
         }
