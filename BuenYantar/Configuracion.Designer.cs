@@ -44,6 +44,7 @@ namespace BuenYantar
             this.tbPassword2 = new System.Windows.Forms.TextBox();
             this.lbPassword2 = new System.Windows.Forms.Label();
             this.lbAvisos = new System.Windows.Forms.Label();
+            this.lbConfirm = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btPassword
@@ -205,10 +206,21 @@ namespace BuenYantar
             this.lbAvisos.AutoSize = true;
             this.lbAvisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAvisos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbAvisos.Location = new System.Drawing.Point(116, 587);
+            this.lbAvisos.Location = new System.Drawing.Point(169, 574);
             this.lbAvisos.Name = "lbAvisos";
             this.lbAvisos.Size = new System.Drawing.Size(0, 29);
             this.lbAvisos.TabIndex = 21;
+            // 
+            // lbConfirm
+            // 
+            this.lbConfirm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbConfirm.AutoSize = true;
+            this.lbConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbConfirm.Location = new System.Drawing.Point(175, 574);
+            this.lbConfirm.Name = "lbConfirm";
+            this.lbConfirm.Size = new System.Drawing.Size(0, 29);
+            this.lbConfirm.TabIndex = 22;
             // 
             // Configuracion
             // 
@@ -216,6 +228,7 @@ namespace BuenYantar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 661);
+            this.Controls.Add(this.lbConfirm);
             this.Controls.Add(this.lbAvisos);
             this.Controls.Add(this.tbPassword2);
             this.Controls.Add(this.lbPassword2);
@@ -258,5 +271,6 @@ namespace BuenYantar
         private System.Windows.Forms.TextBox tbPassword2;
         private System.Windows.Forms.Label lbPassword2;
         private System.Windows.Forms.Label lbAvisos;
+        private System.Windows.Forms.Label lbConfirm;
     }
 }

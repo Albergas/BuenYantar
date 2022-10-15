@@ -39,7 +39,7 @@ namespace BuenYantar
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 25);
+            this.label1.Location = new System.Drawing.Point(18, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(387, 29);
             this.label1.TabIndex = 3;
@@ -49,20 +49,21 @@ namespace BuenYantar
             // 
             this.rtbInforme.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtbInforme.Font = new System.Drawing.Font("Lucida Console", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbInforme.Location = new System.Drawing.Point(12, 72);
+            this.rtbInforme.Location = new System.Drawing.Point(23, 60);
             this.rtbInforme.Name = "rtbInforme";
-            this.rtbInforme.Size = new System.Drawing.Size(793, 590);
+            this.rtbInforme.Size = new System.Drawing.Size(627, 467);
             this.rtbInforme.TabIndex = 2;
             this.rtbInforme.Text = "";
             this.rtbInforme.TextChanged += new System.EventHandler(this.rtbInforme_TextChanged);
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(203, 677);
+            this.button1.Location = new System.Drawing.Point(112, 546);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(414, 115);
+            this.button1.Size = new System.Drawing.Size(414, 67);
             this.button1.TabIndex = 4;
             this.button1.Text = "Imprimir lista de la compra";
             this.button1.UseVisualStyleBackColor = false;
@@ -72,7 +73,7 @@ namespace BuenYantar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 814);
+            this.ClientSize = new System.Drawing.Size(672, 625);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtbInforme);

@@ -42,6 +42,7 @@ namespace BuenYantar
                 this.Visible = false;
                 FormInicio f = new FormInicio(gestor, user);
                 DialogResult d = f.ShowDialog();
+                lbAvisos.Text = "";
 
                 if(d != DialogResult.Retry)
                 {

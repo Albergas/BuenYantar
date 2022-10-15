@@ -37,10 +37,10 @@ namespace BuenYantar
             // rtbFactura
             // 
             this.rtbFactura.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rtbFactura.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbFactura.Location = new System.Drawing.Point(45, 65);
+            this.rtbFactura.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbFactura.Location = new System.Drawing.Point(47, 48);
             this.rtbFactura.Name = "rtbFactura";
-            this.rtbFactura.Size = new System.Drawing.Size(526, 599);
+            this.rtbFactura.Size = new System.Drawing.Size(526, 469);
             this.rtbFactura.TabIndex = 0;
             this.rtbFactura.Text = "";
             // 
@@ -49,7 +49,7 @@ namespace BuenYantar
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 33);
+            this.label1.Location = new System.Drawing.Point(42, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(315, 29);
             this.label1.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace BuenYantar
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(45, 670);
+            this.button1.Location = new System.Drawing.Point(47, 535);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(526, 69);
             this.button1.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace BuenYantar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 772);
+            this.ClientSize = new System.Drawing.Size(626, 625);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtbFactura);

@@ -47,9 +47,9 @@ namespace BuenYantar
             this.btInventario.AutoSize = true;
             this.btInventario.BackColor = System.Drawing.Color.LemonChiffon;
             this.btInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btInventario.Location = new System.Drawing.Point(82, 235);
+            this.btInventario.Location = new System.Drawing.Point(81, 241);
             this.btInventario.Name = "btInventario";
-            this.btInventario.Size = new System.Drawing.Size(248, 237);
+            this.btInventario.Size = new System.Drawing.Size(199, 187);
             this.btInventario.TabIndex = 0;
             this.btInventario.Text = "Inventario";
             this.btInventario.UseVisualStyleBackColor = false;
@@ -60,9 +60,9 @@ namespace BuenYantar
             this.btFactura.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btFactura.BackColor = System.Drawing.Color.MistyRose;
             this.btFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFactura.Location = new System.Drawing.Point(416, 172);
+            this.btFactura.Location = new System.Drawing.Point(321, 193);
             this.btFactura.Name = "btFactura";
-            this.btFactura.Size = new System.Drawing.Size(429, 358);
+            this.btFactura.Size = new System.Drawing.Size(352, 278);
             this.btFactura.TabIndex = 1;
             this.btFactura.Text = "Nueva factura";
             this.btFactura.UseVisualStyleBackColor = false;
@@ -73,7 +73,7 @@ namespace BuenYantar
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(121, 49);
+            this.label1.Location = new System.Drawing.Point(38, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(277, 31);
             this.label1.TabIndex = 2;
@@ -83,10 +83,10 @@ namespace BuenYantar
             // 
             this.tbUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUser.Location = new System.Drawing.Point(404, 49);
+            this.tbUser.Location = new System.Drawing.Point(321, 60);
             this.tbUser.Name = "tbUser";
             this.tbUser.ReadOnly = true;
-            this.tbUser.Size = new System.Drawing.Size(770, 38);
+            this.tbUser.Size = new System.Drawing.Size(670, 38);
             this.tbUser.TabIndex = 3;
             // 
             // btReponer
@@ -94,7 +94,7 @@ namespace BuenYantar
             this.btReponer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btReponer.BackColor = System.Drawing.Color.Moccasin;
             this.btReponer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btReponer.Location = new System.Drawing.Point(664, 610);
+            this.btReponer.Location = new System.Drawing.Point(481, 534);
             this.btReponer.Name = "btReponer";
             this.btReponer.Size = new System.Drawing.Size(169, 146);
             this.btReponer.TabIndex = 4;
@@ -107,7 +107,7 @@ namespace BuenYantar
             this.btUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUsuarios.Location = new System.Drawing.Point(449, 610);
+            this.btUsuarios.Location = new System.Drawing.Point(296, 534);
             this.btUsuarios.Name = "btUsuarios";
             this.btUsuarios.Size = new System.Drawing.Size(158, 146);
             this.btUsuarios.TabIndex = 5;
@@ -120,9 +120,9 @@ namespace BuenYantar
             this.btHistorial.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.btHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btHistorial.Location = new System.Drawing.Point(926, 235);
+            this.btHistorial.Location = new System.Drawing.Point(715, 241);
             this.btHistorial.Name = "btHistorial";
-            this.btHistorial.Size = new System.Drawing.Size(248, 237);
+            this.btHistorial.Size = new System.Drawing.Size(199, 187);
             this.btHistorial.TabIndex = 6;
             this.btHistorial.Text = "Mis facturas";
             this.btHistorial.UseVisualStyleBackColor = false;
@@ -133,7 +133,7 @@ namespace BuenYantar
             this.btConfiguracion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btConfiguracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btConfiguracion.Location = new System.Drawing.Point(881, 610);
+            this.btConfiguracion.Location = new System.Drawing.Point(688, 534);
             this.btConfiguracion.Name = "btConfiguracion";
             this.btConfiguracion.Size = new System.Drawing.Size(166, 146);
             this.btConfiguracion.TabIndex = 7;
@@ -147,9 +147,9 @@ namespace BuenYantar
             this.btCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.btCerrarSesion.DialogResult = System.Windows.Forms.DialogResult.Retry;
             this.btCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCerrarSesion.Location = new System.Drawing.Point(1122, 646);
+            this.btCerrarSesion.Location = new System.Drawing.Point(917, 645);
             this.btCerrarSesion.Name = "btCerrarSesion";
-            this.btCerrarSesion.Size = new System.Drawing.Size(131, 129);
+            this.btCerrarSesion.Size = new System.Drawing.Size(99, 92);
             this.btCerrarSesion.TabIndex = 9;
             this.btCerrarSesion.Text = "Cerrar sesión";
             this.btCerrarSesion.UseVisualStyleBackColor = false;
@@ -160,7 +160,7 @@ namespace BuenYantar
             this.btTodasFacturas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btTodasFacturas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(255)))));
             this.btTodasFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTodasFacturas.Location = new System.Drawing.Point(215, 610);
+            this.btTodasFacturas.Location = new System.Drawing.Point(101, 534);
             this.btTodasFacturas.Name = "btTodasFacturas";
             this.btTodasFacturas.Size = new System.Drawing.Size(156, 146);
             this.btTodasFacturas.TabIndex = 8;
@@ -172,7 +172,7 @@ namespace BuenYantar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1265, 787);
+            this.ClientSize = new System.Drawing.Size(1028, 749);
             this.Controls.Add(this.btCerrarSesion);
             this.Controls.Add(this.btTodasFacturas);
             this.Controls.Add(this.btConfiguracion);

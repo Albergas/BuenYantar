@@ -192,24 +192,34 @@ namespace BuenYantar
                         {
                             if (Int32.TryParse(tbCodigo.Text, out codigo))
                             {
-                                nombreViejo = seleccionado.Nombre;
-                                seleccionado.Nombre = tbNombre.Text;
-                                seleccionado.Cantidad = cantidad;
-                                seleccionado.Seguridad = seguridad;
-                                seleccionado.Precio = precio;
-                                seleccionado.Codigo = codigo;
+                                if (!tbNombre.Text.Equals(""))
+                                {
+                                    nombreViejo = seleccionado.Nombre;
+                                    seleccionado.Nombre = tbNombre.Text;
+                                    seleccionado.Cantidad = cantidad;
+                                    seleccionado.Seguridad = seguridad;
+                                    seleccionado.Precio = precio;
+                                    seleccionado.Codigo = codigo;
 
-                                MessageBox.Show("Cambios guardados");
+                                    MessageBox.Show("Cambios guardados");
 
-                                inventario.modifyItem(seleccionado, nombreViejo);
+                                    inventario.modifyItem(seleccionado, nombreViejo);
 
-                                this.tbNombre.ReadOnly = true;
-                                this.tbStock.ReadOnly = true;
-                                this.tbStockSeguridad.ReadOnly = true;
-                                this.tbPrecio.ReadOnly = true;
-                                this.tbCodigo.ReadOnly = true;
+                                    this.tbNombre.ReadOnly = true;
+                                    this.tbStock.ReadOnly = true;
+                                    this.tbStockSeguridad.ReadOnly = true;
+                                    this.tbPrecio.ReadOnly = true;
+                                    this.tbCodigo.ReadOnly = true;
 
-                                this.btGuardar.Visible = false;
+                                    this.btGuardar.Visible = false;
+
+                                    actualizarLista();
+                                    actualizarDatos();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error: nombre no válido");
+                                }
                             }
                             else
                                 MessageBox.Show("Error: código no válido");
@@ -219,13 +229,19 @@ namespace BuenYantar
                     }
                     else
                     {
-                        MessageBox.Show("Error: precio no válido");
+                        MessageBox.Show("Error: stock de seguridad no válido");
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Error: stock no válido");
+                }
             }
-
-            actualizarLista();
-            actualizarDatos();
+            else
+            {
+                MessageBox.Show("Error: precio no válido");
+            }
+            
         }
 
         private void btStockMenos_Click(object sender, EventArgs e)
@@ -299,25 +315,33 @@ namespace BuenYantar
                     {
                         if (!tbNombre.Text.Contains('|'))
                         {
-                            if(Int32.TryParse(tbCodigo.Text, out codigo))
+                            if (Int32.TryParse(tbCodigo.Text, out codigo))
                             {
-                                Item nuevoItem = new Item(tbNombre.Text, cantidad, precio, seguridad, codigo);
+                                if (!tbNombre.Text.Equals(""))
+                                {
+                                    Item nuevoItem = new Item(tbNombre.Text, cantidad, precio, seguridad, codigo);
 
-                                MessageBox.Show("Nuevo producto guardados");
+                                    MessageBox.Show("Nuevo producto guardados");
 
-                                inventario.addItem(nuevoItem);
-                                inventario.getGestor().LogCrear(user, nuevoItem, null, null);
+                                    inventario.addItem(nuevoItem);
+                                    inventario.getGestor().LogCrear(user, nuevoItem, null, null);
 
-                                this.tbNombre.ReadOnly = true;
-                                this.tbStock.ReadOnly = true;
-                                this.tbStockSeguridad.ReadOnly = true;
-                                this.tbPrecio.ReadOnly = true;
-                                this.tbCodigo.ReadOnly = true;
+                                    this.tbNombre.ReadOnly = true;
+                                    this.tbStock.ReadOnly = true;
+                                    this.tbStockSeguridad.ReadOnly = true;
+                                    this.tbPrecio.ReadOnly = true;
+                                    this.tbCodigo.ReadOnly = true;
 
-                                this.btGuardar.Visible = false;
-                                this.btGuardarNuevo.Visible = false;
+                                    this.btGuardar.Visible = false;
+                                    this.btGuardarNuevo.Visible = false;
 
-                                this.actualizarLista();
+                                    this.actualizarLista();
+                                    this.actualizarDatos();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error: nombre no válido");
+                                }
                             }
                             else
                             {
@@ -332,10 +356,18 @@ namespace BuenYantar
                         MessageBox.Show("Error: precio no válido");
                     }
                 }
+                else 
+                {
+                    MessageBox.Show("Error: stock de seguridad no válido");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: stock no válido");
             }
 
             actualizarLista();
-            actualizarDatos();
+            
         }
 
         private void btEliminar_Click(object sender, EventArgs e)

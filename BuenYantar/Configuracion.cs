@@ -85,6 +85,7 @@ namespace BuenYantar
                             {
                                 user = new Usuario(tbNuevoNombre.Text, Passwords.MD5(tbPassword.Text), user.Tipo, user.NombreCompleto);
                                 gestor.modifyUserNC(user);
+                                lbConfirm.Text = "Contraseña actualizada";
                                 actualizarDatos();
                             }
                         }
@@ -93,6 +94,7 @@ namespace BuenYantar
                     {
                         user = new Usuario(tbNuevoNombre.Text, user.Hash, user.Tipo, user.NombreCompleto);
                         gestor.modifyUserNC(user);
+                        lbConfirm.Text = "Contraseña actualizada";
                         actualizarDatos();
                     }
                 }
@@ -117,6 +119,7 @@ namespace BuenYantar
                         {
                             user = new Usuario(user.Nombre, Passwords.MD5(tbPassword.Text), user.Tipo, user.NombreCompleto);
                             gestor.modifyUserNC(user);
+                            lbConfirm.Text = "Contraseña actualizada";
                             actualizarDatos();
                         }
                     }
@@ -130,6 +133,7 @@ namespace BuenYantar
 
         private void btPassword_Click(object sender, EventArgs e)
         {
+            lbConfirm.Text = "";
             lbPassword.Visible = true;
             lbPassword2.Visible = true;
             tbPassword.Visible = true;

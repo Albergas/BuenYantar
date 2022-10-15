@@ -27,7 +27,7 @@ namespace BuenYantar
             this.inventario = inventario;
             this.seleccionado = null;
             this.user = user;
-            lbAvisos.Text = "";
+            lbAvisos2.Text = "";
             this.inventarioOrdenado = this.inventario.ordenado();
 
             btQuitar.Visible = false;
@@ -47,17 +47,31 @@ namespace BuenYantar
 
             if (this.tbFiltrar.Text.Trim() != "")
             {
-                foreach (Item item in this.inventarioOrdenado)
+                if (tbFamilia.Text.Trim() != "")
                 {
-                    if (item.Nombre.Contains(this.tbFiltrar.Text))
-                        this.lbInventario.Items.Add(item.Nombre);
+                    foreach (Item item in this.inventarioOrdenado)
+                        if (item.Nombre.Contains(this.tbFiltrar.Text) && item.Codigo == Int32.Parse(tbFamilia.Text))
+                            this.lbInventario.Items.Add(item.Nombre);
+                }
+                else
+                {
+                    foreach (Item item in this.inventarioOrdenado)
+                        if (item.Nombre.Contains(this.tbFiltrar.Text))
+                            this.lbInventario.Items.Add(item.Nombre);
                 }
             }
             else
             {
-                foreach (Item item in this.inventarioOrdenado)
+                if (tbFamilia.Text.Trim() != "")
                 {
-                    this.lbInventario.Items.Add(item.Nombre);
+                    foreach (Item item in this.inventarioOrdenado)
+                        if (item.Codigo == Int32.Parse(tbFamilia.Text))
+                            this.lbInventario.Items.Add(item.Nombre);
+                }
+                else
+                {
+                    foreach (Item item in this.inventarioOrdenado)
+                        this.lbInventario.Items.Add(item.Nombre);
                 }
             }
         }
@@ -72,7 +86,10 @@ namespace BuenYantar
             foreach(Tuple<Item,int> elemento in factura.Contenido)
             {
                 d = elemento.Item1.Precio * elemento.Item2;
-                s = "" + elemento.Item2.ToString() + " " + elemento.Item1.Nombre + " (" + d + "€)";
+                if(elemento.Item2 > elemento.Item1.Cantidad)
+                    s = "*" + elemento.Item2.ToString() + " " + elemento.Item1.Nombre + " (" + d + "€)";
+                else
+                    s = "" + elemento.Item2.ToString() + " " + elemento.Item1.Nombre + " (" + d + "€)";
 
                 lbFactura.Items.Add(s);
             }
@@ -148,7 +165,7 @@ namespace BuenYantar
 
         private void btAniadir_Click(object sender, EventArgs e)
         {
-            lbAvisos.Text = "";
+            lbAvisos2.Text = "";
             try
             {
                 if (tbCantidad.Text != null && tbCantidad.Text != "")
@@ -156,7 +173,7 @@ namespace BuenYantar
                     factura.add(seleccionado, Int32.Parse(tbCantidad.Text));
 
                     if (!gestor.suficienteCantidad(seleccionado.Nombre, Int32.Parse(tbCantidad.Text)))
-                        lbAvisos.Text = "AVISO: has incluido en la factura más del stock registrado.\nEl stock quedará en negativo si aceptas la factura.";
+                        lbAvisos2.Text = "AVISO: has incluido en la factura más del stock registrado.\nEl stock quedará en negativo si aceptas la factura.";
 
                     tbCantidad.Text = "";
 
@@ -188,7 +205,7 @@ namespace BuenYantar
         private void button1_Click_1(object sender, EventArgs e)
         {
             factura = new Factura(user);
-            lbAvisos.Text = "";
+            lbAvisos2.Text = "";
             actualizarListaFactura();
         }
 
@@ -224,6 +241,14 @@ namespace BuenYantar
             
             actualizarLista();
             actualizarListaFactura();
+        }
+
+        private void tbFamilia_TextChanged(object sender, EventArgs e)
+        {
+            int n;
+            if (!Int32.TryParse(tbFamilia.Text, out n))
+                tbFamilia.Text = "";
+            this.actualizarLista();
         }
     }
 }

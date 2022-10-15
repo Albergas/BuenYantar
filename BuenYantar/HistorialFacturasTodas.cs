@@ -37,6 +37,7 @@ namespace BuenYantar
         private void actualizarLista()
         {
             facturasMostradas.Clear();
+            btEliminar.Visible = false;
 
             lbFacturas.Items.Clear();
             string s;
@@ -374,14 +375,17 @@ namespace BuenYantar
 
         private void btEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult d = MessageBox.Show("¿Seguro que desea eliminar la factura seleccionada?", "Confirmar eliminación", MessageBoxButtons.YesNo);
-            if(d == DialogResult.Yes)
+            if (lbFacturas.SelectedItem != null)
             {
-                MessageBox.Show("Se eliminó la siguiente factura:\n" + facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1].logSinHora());
-                gestor.LogEliminar(user, null, facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1], null);
-                gestor.removeFactura(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
-                facturas.Remove(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
-                facturasMostradas.Remove(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
+                DialogResult d = MessageBox.Show("¿Seguro que desea eliminar la factura seleccionada?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+                if(d == DialogResult.Yes)
+                {
+                    MessageBox.Show("Se eliminó la siguiente factura:\n" + facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1].logSinHora());
+                    gestor.LogEliminar(user, null, facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1], null);
+                    gestor.removeFactura(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
+                    facturas.Remove(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
+                    facturasMostradas.Remove(facturasMostradas[facturasMostradas.Count - lbFacturas.SelectedIndex - 1]);
+                }
             }
             actualizarLista();
         }

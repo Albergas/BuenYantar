@@ -43,12 +43,12 @@ namespace BuenYantar
             // lbUsuarios
             // 
             this.lbUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuarios.FormattingEnabled = true;
-            this.lbUsuarios.ItemHeight = 29;
-            this.lbUsuarios.Location = new System.Drawing.Point(41, 41);
+            this.lbUsuarios.ItemHeight = 25;
+            this.lbUsuarios.Location = new System.Drawing.Point(20, 33);
             this.lbUsuarios.Name = "lbUsuarios";
-            this.lbUsuarios.Size = new System.Drawing.Size(531, 613);
+            this.lbUsuarios.Size = new System.Drawing.Size(303, 604);
             this.lbUsuarios.TabIndex = 0;
             this.lbUsuarios.SelectedIndexChanged += new System.EventHandler(this.lbUsuarios_SelectedIndexChanged);
             // 
@@ -56,39 +56,39 @@ namespace BuenYantar
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(604, 129);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(329, 119);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 29);
+            this.label1.Size = new System.Drawing.Size(200, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre de usuario:";
             // 
             // tbNombre
             // 
             this.tbNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNombre.Location = new System.Drawing.Point(836, 129);
+            this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNombre.Location = new System.Drawing.Point(535, 119);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(490, 35);
+            this.tbNombre.Size = new System.Drawing.Size(345, 31);
             this.tbNombre.TabIndex = 2;
             // 
             // tbNombreCompleto
             // 
             this.tbNombreCompleto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNombreCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNombreCompleto.Location = new System.Drawing.Point(836, 79);
+            this.tbNombreCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNombreCompleto.Location = new System.Drawing.Point(535, 80);
             this.tbNombreCompleto.Name = "tbNombreCompleto";
-            this.tbNombreCompleto.Size = new System.Drawing.Size(490, 35);
+            this.tbNombreCompleto.Size = new System.Drawing.Size(345, 31);
             this.tbNombreCompleto.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(617, 82);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(343, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(213, 29);
+            this.label2.Size = new System.Drawing.Size(186, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nombre completo:";
             // 
@@ -96,10 +96,10 @@ namespace BuenYantar
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(603, 184);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(329, 157);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(227, 29);
+            this.label3.Size = new System.Drawing.Size(201, 25);
             this.label3.TabIndex = 5;
             this.label3.Text = "Permisos de admin:";
             // 
@@ -107,8 +107,8 @@ namespace BuenYantar
             // 
             this.cbPermisos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbPermisos.AutoSize = true;
-            this.cbPermisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPermisos.Location = new System.Drawing.Point(836, 192);
+            this.cbPermisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPermisos.Location = new System.Drawing.Point(535, 163);
             this.cbPermisos.Name = "cbPermisos";
             this.cbPermisos.Size = new System.Drawing.Size(15, 14);
             this.cbPermisos.TabIndex = 7;
@@ -119,7 +119,7 @@ namespace BuenYantar
             this.btNuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.btNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btNuevo.Location = new System.Drawing.Point(622, 534);
+            this.btNuevo.Location = new System.Drawing.Point(348, 517);
             this.btNuevo.Name = "btNuevo";
             this.btNuevo.Size = new System.Drawing.Size(138, 120);
             this.btNuevo.TabIndex = 8;
@@ -132,7 +132,7 @@ namespace BuenYantar
             this.btEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
             this.btEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEliminar.Location = new System.Drawing.Point(766, 534);
+            this.btEliminar.Location = new System.Drawing.Point(510, 517);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(138, 120);
             this.btEliminar.TabIndex = 9;
@@ -144,7 +144,7 @@ namespace BuenYantar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1375, 678);
+            this.ClientSize = new System.Drawing.Size(903, 678);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btNuevo);
             this.Controls.Add(this.cbPermisos);
